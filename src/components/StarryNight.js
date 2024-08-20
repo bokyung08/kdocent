@@ -4,6 +4,8 @@ import goghImage from '../images/gogh.png';
 import nightImage from '../images/night.png';
 import homeImage from '../images/home.png'; 
 import burgerImage from '../images/burger.png';   
+import  { useState } from 'react';
+import BurgerButton from './BurgerButton';
 function VanGoghPage() {
     return (
         <div className="container">
@@ -14,11 +16,7 @@ function VanGoghPage() {
                     src={homeImage}
                     alt='홈'
                 />
-                <img
-                    className='burger'
-                    src={burgerImage}
-                    alt='버거'
-                />
+                <div className='burger'><BurgerButton /></div>
                 <h1 className="title">반 고흐</h1>
                 <div className="image-container">
                     <img 

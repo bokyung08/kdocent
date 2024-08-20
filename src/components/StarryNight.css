@@ -1,19 +1,30 @@
 .container {
-    width: 100%;
-    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background-color: #f8e9e6;
+    background-image: url('../images/night.png'); /* 배경 이미지 설정 */
+    background-size: cover; /* 배경 이미지가 전체를 덮도록 설정 */
+    background-position: center; /* 배경 이미지가 중앙에 오도록 설정 */
+    background-repeat: no-repeat; /* 배경 이미지가 반복되지 않도록 설정 */
     padding-top: 20px;
+    padding-bottom: 20px;
+    position: relative; /* 다른 절대 위치 요소들을 위한 기준 설정 */
+    z-index: 30;
+}
+
+.header {
+    width: 100%;
+    text-align: left;
+    padding: 10px;
+    font-size: 14px;
+    color: #aaa;
 }
 
 .content {
-    width: 90%;
+    width: 100%;
     max-width: 400px;
-    background-color: #ffeae1;
     border-radius: 15px;
     padding: 15px;
     text-align: center;
@@ -25,7 +36,7 @@
     color: #49296a;
     margin-bottom: 20px;
     position:absolute;
-    top:3%;
+    top: 15px;;
 }
 
 .image-container {
@@ -80,8 +91,8 @@
 
 .home{
     position:absolute;
-    left:20%;
-    top:5%;
+    top: 15px;           /* 화면 상단에서 15px 아래에 위치 */
+    left: 10px;
 }
 .burger{
     position:absolute;
