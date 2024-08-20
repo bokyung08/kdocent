@@ -1,16 +1,15 @@
 import React from 'react';
-import './VanGoghPage.css'; 
+import './StarryNight.css'; 
 import goghImage from '../images/gogh.png';
-import nightImage from '../images/night.png';
-import homeImage from '../images/home.png'; 
-import burgerImage from '../images/burger.png';   
+import homeImage from '../images/home.png';   
 import  { useState } from 'react';
 import BurgerButton from './BurgerButton';
-function VanGoghPage() {
+
+function StarryNight() {
     return (
-        <div className="container">
+        <div className="starrycontainer">
             
-            <div className="content">
+            <div className="starrycontent">
                 <img 
                     className='home'
                     src={homeImage}
@@ -27,7 +26,7 @@ function VanGoghPage() {
                 </div>
                 <div className="description">
                     <p>
-                        안녕하세요. 이렇게 만나게 되어 반갑습니다. 제 이야기에 관심을 가져주신 것, 정말 감사드립니다. 사실 저는 평범한 삶을 살려고 노력했지만, 항상 마음속에는 설명할 수 없는 감정과 열망이 있었습니다. 저는 캔버스와 물감을 통해 제 감정과 생각을 표현하고자 했습니다.
+                        안녕하세요.
                     </p>
                     <div className="message-bar">
                     <button className="back-button">⬅</button>
@@ -42,4 +41,4 @@ function VanGoghPage() {
     );
 }
 
-export default VanGoghPage;
+export default StarryNight;
