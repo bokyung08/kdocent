@@ -36,13 +36,25 @@ function BurgerButton() {
 }
 
 function Popup({ isOpen, onClose, onMapOpen }) {
+  const handleOverlayClick = (e) => {
+    // 애니메이션이 완료된 후에 닫기
+    if (e.target === e.currentTarget) {
+      const content = document.querySelector('.popup-content');
+      content.classList.add('closed');
+      setTimeout(() => {
+        content.classList.remove('closed');
+        onClose();
+      }, 400); // 애니메이션 시간과 동일하게 설정 (0.4s)
+    }
+  };
+
   return (
     <div
       className={`popup-overlay ${isOpen ? 'open' : ''}`}
-      onClick={onClose}
+      onClick={handleOverlayClick} // 수정된 부분
     >
       <div
-        className={`popup-content ${isOpen ? 'open' : ''}`}
+        className={`popup-content ${isOpen ? 'open' : 'closed'}`} // 수정된 부분
         onClick={(e) => e.stopPropagation()}
       >
         <h2>❖ 작품 리스트 ❖</h2>
@@ -65,4 +77,6 @@ function Popup({ isOpen, onClose, onMapOpen }) {
     </div>
   );
 }
+
+
 export default BurgerButton;
