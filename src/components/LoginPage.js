@@ -18,13 +18,13 @@ function LoginPage() {
             <div className="header">
             </div>
             <div className="content">
-                <h1 className="title">PERCENT</h1>
+                <h1 className="title">PEŘCENT</h1>
                 <div className="imageContainer">
 
                 <div className="buttonContainer">
                 <img className="monaLisaLogin" src={monaLisaImage} alt="Mona Lisa" />
                     <button className="guestButton"onClick={togglePopup}>
-                        <img className="guestIcon" src={GuestImage} alt="guest" />67a89R)                        <span>게스트로 입장</span>
+                        <img className="guestIcon" src={GuestImage} alt="guest" />                      <span>게스트로 입장</span>
                     </button>
                     <button className="kakaoButton">
                         <img className="kakaoIcon" src={kakaoImage} alt="kakao" />
