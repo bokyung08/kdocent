@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../components/BurgerButton.css'; // CSS 파일을 불러옵니다.
+import './BurgerButton.css'; // CSS 파일을 불러옵니다.
 
 function BurgerButton() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
