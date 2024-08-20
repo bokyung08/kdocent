@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import BurgerButton from './BurgerButton';
+import BurgerButton from '../components/BurgerButton';
 
 function TalkingPage() {
   return (
