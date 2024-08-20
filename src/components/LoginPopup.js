@@ -7,7 +7,7 @@ function LoginPopup({ onClose }) {
             <div className="popup-content" onClick={(e) => e.stopPropagation()}>
                 <h2>로그인</h2>
                 <p>게스트로 입장하시겠습니까?</p>
-                <button onClick={onClose} className="close-button">닫기</button>
+                <button onClick={onClose} className="close-button">확인</button>
             </div>
         </div>
     );
