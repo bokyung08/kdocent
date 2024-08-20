@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import './BurgerButton.css';
 import MuseumMap from './MuseumMap'; 
+import ArtworkDescription from './ArtworkDescription'; 
+import starryNightImage from '../images/theStarryNight.jpg';
 
 function BurgerButton() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [isMapOpen, setIsMapOpen] = useState(false);
   const [isRotated, setIsRotated] = useState(false);
+  const [isDescriptionOpen, setIsDescriptionOpen] = useState(false);
 
   const togglePopup = () => {
     setIsPopupOpen(!isPopupOpen);
@@ -21,6 +24,14 @@ function BurgerButton() {
     setIsMapOpen(false);
   };
 
+  const openDescription = () => {
+    setIsDescriptionOpen(true);
+  };
+
+  const closeDescription = () => {
+    setIsDescriptionOpen(false);
+  };
+
   return (
     <>
       <button
@@ -29,15 +40,28 @@ function BurgerButton() {
       >
         &#9776; {/* 버거 아이콘 (유니코드) */}
       </button>
-      {!isMapOpen && <Popup isOpen={isPopupOpen} onClose={togglePopup} onMapOpen={openMap} />}
+      <div className={`popup-container ${isDescriptionOpen ? 'blurred' : ''}`}>
+        <Popup 
+          isOpen={isPopupOpen} 
+          onClose={togglePopup} 
+          onMapOpen={openMap} 
+          onArtworkClick={openDescription} 
+        />
+      </div>
       {isMapOpen && <MuseumMap onClose={closeMap} />}
+      {isDescriptionOpen && (
+        <ArtworkDescription 
+          isOpen={isDescriptionOpen} 
+          onClose={closeDescription} 
+          imageUrl={starryNightImage} // 로컬 이미지 URL
+        />
+      )}
     </>
   );
 }
 
-function Popup({ isOpen, onClose, onMapOpen }) {
+function Popup({ isOpen, onClose, onMapOpen, onArtworkClick }) {
   const handleOverlayClick = (e) => {
-    // 애니메이션이 완료된 후에 닫기
     if (e.target === e.currentTarget) {
       const content = document.querySelector('.popup-content');
       content.classList.add('closed');
@@ -51,10 +75,10 @@ function Popup({ isOpen, onClose, onMapOpen }) {
   return (
     <div
       className={`popup-overlay ${isOpen ? 'open' : ''}`}
-      onClick={handleOverlayClick} // 수정된 부분
+      onClick={handleOverlayClick}
     >
       <div
-        className={`popup-content ${isOpen ? 'open' : 'closed'}`} // 수정된 부분
+        className={`popup-content ${isOpen ? 'open' : 'closed'}`}
         onClick={(e) => e.stopPropagation()}
       >
         <h2>❖ 작품 리스트 ❖</h2>
@@ -66,8 +90,8 @@ function Popup({ isOpen, onClose, onMapOpen }) {
           <h3>세션 2. "빛과 생명: 해바라기와 자화상"</h3>
             <li>- 해바라기</li>
             <li>- 자화상 1889</li>
-	        <h3>세션 3. "고독 속의 희망과 새로운 시작"</h3>
-            <li>- 별이 빛나는 밤</li>
+          <h3>세션 3. "고독 속의 희망과 새로운 시작"</h3>
+            <li onClick={onArtworkClick}>- 별이 빛나는 밤</li>
             <li>- 꽃 피는 아몬드 나무</li> 
         </ul>
         <hr />
@@ -77,6 +101,5 @@ function Popup({ isOpen, onClose, onMapOpen }) {
     </div>
   );
 }
-
 
 export default BurgerButton;
