@@ -1,0 +1,46 @@
+import React from 'react';
+import './VanGoghPage.css'; 
+import goghImage from '../images/gogh.png';
+import homeImage from '../images/home.png'; 
+import burgerImage from '../images/burger.png';   
+function VanGoghPage() {
+    return (
+        <div className="container">
+            
+            <div className="content">
+                <img 
+                    className='home'
+                    src={homeImage}
+                    alt='홈'
+                />
+                <img
+                    className='burger'
+                    src={burgerImage}
+                    alt='버거'
+                />
+                <h1 className="title">반 고흐</h1>
+                <div className="image-container">
+                    <img 
+                        className="vangogh-image" 
+                        src={goghImage}
+                        alt="반 고흐"
+                    />
+                </div>
+                <div className="description">
+                    <p>
+                        안녕하세요. 이렇게 만나게 되어 반갑습니다. 제 이야기에 관심을 가져주신 것, 정말 감사드립니다. 사실 저는 평범한 삶을 살려고 노력했지만, 항상 마음속에는 설명할 수 없는 감정과 열망이 있었습니다. 저는 캔버스와 물감을 통해 제 감정과 생각을 표현하고자 했습니다.
+                    </p>
+                    <div className="message-bar">
+                    <button className="back-button">⬅</button>
+                    <input className="message-input" type="text" placeholder="메시지"/>
+                    <button className="send-button">🔊</button>
+                    <button className="next-button">➡</button>
+                </div>
+                </div>
+                
+            </div>
+        </div>
+    );
+}
+
+export default VanGoghPage;
