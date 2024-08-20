@@ -7,15 +7,7 @@
     align-items: center;
   }
   
-  .header {
-    width: 100%;
-    padding: 1em;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: white;
-    border-bottom: 1px solid #ddd;
-  }
+
   
   .time, .urlBar, .statusIcons {
     font-size: 1em;
@@ -36,8 +28,9 @@
     color: #49296A;
     margin: 20px 0;
     font-family: 'Abhaya Libre ExtraBold';
-  }
-  
+    position: absolute;
+}
+
   .imageContainer {
     display: flex;
     justify-content: center;
