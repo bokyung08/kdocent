@@ -65,3 +65,37 @@ hr {
   border: 1px solid gray;
   margin: 10px 0;
 }
+
+/* MuseumMap.css */
+.map-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.map-image {
+  width: 90%;
+  max-width: 600px;
+  height: auto;
+  border: 2px solid white;
+  border-radius: 10px;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
