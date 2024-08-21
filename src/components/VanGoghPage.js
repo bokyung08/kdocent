@@ -3,7 +3,7 @@ import './talking.css';
 import goghImage from '../images/gogh.png';
 import homeImage from '../images/home.png';   
 import BurgerButton from './BurgerButton';
-aa
+
 
 function VanGoghPage() {
     
@@ -35,7 +35,7 @@ function VanGoghPage() {
                             type="text" 
                             placeholder="메시지" 
                         />
-                        <button className="send-button">🔊</button>
+                        <button className="send-button">✉️</button>
                         <button className="next-button">➡</button>
                     </div>
                 </div>

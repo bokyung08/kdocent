@@ -30,7 +30,7 @@ function self() {
                             type="text" 
                             placeholder="메시지" 
                         />
-                        <button className="send-button">🔊</button>
+                        <button className="send-button">✉️</button>
                         <button className="next-button">➡</button>
                     </div>
                 </div>
