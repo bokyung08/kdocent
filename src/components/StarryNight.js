@@ -1,14 +1,12 @@
 import React from 'react';
-import './StarryNight.css'; 
+import './talking.css'; 
 import goghImage from '../images/gogh.png';
 import homeImage from '../images/home.png';   
-import  { useState } from 'react';
 import BurgerButton from './BurgerButton';
 
 function StarryNight() {
     return (
         <div className="starrycontainer">
-            
             <div className="starrycontent">
                 <img 
                     className='home'
@@ -16,7 +14,7 @@ function StarryNight() {
                     alt='홈'
                 />
                 <div className='burger'><BurgerButton /></div>
-                <h1 className="title">반 고흐</h1>
+                <h1 className="middletitle">반 고흐</h1>
                 <div className="image-container">
                     <img 
                         className="vangogh-image" 
@@ -29,13 +27,16 @@ function StarryNight() {
                         안녕하세요.
                     </p>
                     <div className="message-bar">
-                    <button className="back-button">⬅</button>
-                    <input className="message-input" type="text" placeholder="메시지"/>
-                    <button className="send-button">🔊</button>
-                    <button className="next-button">➡</button>
+                        <button className="back-button">⬅</button>
+                        <input 
+                            className="message-input" 
+                            type="text" 
+                            placeholder="메시지" 
+                        />
+                        <button className="send-button">✉️</button>
+                        <button className="next-button">➡</button>
+                    </div>
                 </div>
-                </div>
-                
             </div>
         </div>
     );

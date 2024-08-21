@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './self.css'; 
+import './talking.css'; 
 import selfImage from '../images/self.png';
 import homeImage from '../images/home.png';   
 import BurgerButton from './BurgerButton';
@@ -16,7 +16,7 @@ function self() {
                     alt='홈'
                 />
                 <div className='burger'><BurgerButton /></div>
-                <h1 className="title">자화상</h1>
+                <h1 className="middletitle">자화상</h1>
                 <div className="image-container">
                     <img 
                         className="self" 

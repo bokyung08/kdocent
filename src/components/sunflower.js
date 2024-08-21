@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './sunflower.css'; 
+import './talking.css'; 
 import sunflowerImage from '../images/sunflower.png';
 import homeImage from '../images/home.png';   
 import BurgerButton from './BurgerButton';
@@ -16,7 +16,7 @@ function sunflower() {
                     alt='홈'
                 />
                 <div className='burger'><BurgerButton /></div>
-                <h1 className="title">해바라기</h1>
+                <h1 className="middletitle">해바라기</h1>
                 <div className="image-container">
                     <img 
                         className="sunflower" 

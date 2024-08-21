@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './VanGoghPage.css'; 
+import './talking.css'; 
 import goghImage from '../images/gogh.png';
 import homeImage from '../images/home.png';   
 import BurgerButton from './BurgerButton';
@@ -16,7 +16,7 @@ function VanGoghPage() {
                     alt='홈'
                 />
                 <div className='burger'><BurgerButton /></div>
-                <h1 className="title">반 고흐</h1>
+                <h1 className="middletitle">반 고흐</h1>
                 <div className="image-container">
                     <img 
                         className="vangogh-image" 

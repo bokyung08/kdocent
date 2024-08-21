@@ -22,7 +22,7 @@
     margin-top: 20px; /* 이미지와 텍스트 사이의 여백 추가 */
     margin-bottom: 20px; /* 텍스트 아래에 여백 추가 */
     line-height: 1.5; /* 텍스트 줄 간격 조정 */
-    left: 7%;
+    left: 10%;
 }
 
 .image-container {

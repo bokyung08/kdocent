@@ -1,26 +1,13 @@
 .container {
-    width:100%;
-    height: auto;
+    width: 390px;
+    height: 844px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
     background-color: #f8e9e6;
 }
 
-.header {
-    width: 100%;
-    padding: 10px;
-    text-align: center;
-}
-
-.content {
-    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 
 .title {
     font-size: 2.5em;
@@ -35,7 +22,7 @@
     height: 600px;
     display: block;
     position:absolute;
-    top: -230%;
+    top:35%;
     opacity: 0.4;
 }
 
