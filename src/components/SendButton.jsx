@@ -5,7 +5,7 @@ function SendButton() {
     const navigate = useNavigate();
 
     const handleClick = () => {
-        navigate('/send-page'); // 특정 페이지로 이동
+        navigate('/sendpage'); // 특정 페이지로 이동
     };
 
     return (
