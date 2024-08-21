@@ -6,8 +6,8 @@ import TalkingPage from './components/TalkingPage';
 import VanGoghPage from './components/VanGoghPage';
 import StarryNight from './components/StarryNight';
 import SunFlower from './components/sunflower';
-import Self from './components/self';
-import Self2 from './components/self2';
+import Self from './components/SelfPage';
+import Self2 from './components/Self2Page';
 
 function App() {
   return (
