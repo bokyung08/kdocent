@@ -7,6 +7,8 @@ import StarryNight from './components/StarryNight';
 import SunFlower from './components/sunflower';
 import Self from './components/self';
 import Self2 from './components/self2';
+import DocentSelect from './components/DocentSelect';
+import SurveyPage from './components/SurveyPage';
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
       <Routes>
         <Route path="/" element={<PercentPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/select" element={<DocentSelect />} />
+        <Route path="/survey/:alt" element={<SurveyPage />} />
         <Route path="/gogh" element={<VanGoghPage />} />
         <Route path="/starry" element={<StarryNight />} />
         <Route path="/sunflower" element={<SunFlower />} />
