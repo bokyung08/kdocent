@@ -25,7 +25,7 @@ function StarryNight() {
                         안녕하세요.
                     </p>
                     <div className="message-bar">
-                        <BackButton />
+                        <BackButton beforePath="/gogh"/>
                         <input 
                             className="message-input" 
                             type="text" 
