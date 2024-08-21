@@ -5,7 +5,9 @@ import LoginPage from './components/LoginPage';
 import TalkingPage from './components/TalkingPage';
 import VanGoghPage from './components/VanGoghPage';
 import StarryNight from './components/StarryNight';
-
+import SunFlower from './components/sunflower';
+import Self from './components/self';
+import Self2 from './components/self2';
 
 function App() {
   return (
@@ -16,7 +18,9 @@ function App() {
         <Route path="/talking" element={<TalkingPage />} />
         <Route path="/gogh" element={<VanGoghPage />} />
         <Route path="/starry" element={<StarryNight />} />
-       
+        <Route path="/sunflower" element={<SunFlower />} />
+        <Route path="/self" element={<Self />} />
+        <Route path="/self2" element={<Self2 />} />
       </Routes>
     </Router>      
   );

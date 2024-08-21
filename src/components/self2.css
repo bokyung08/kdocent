@@ -1,31 +1,28 @@
-.starrycontainer {
+.self2container {
     width: 100%;
-    height: 100%;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background-image: url('../images/night.png'); /* 배경 이미지 설정 */
-    background-size: cover; /* 배경 이미지가 전체를 덮도록 설정 */
-    background-position: center; /* 배경 이미지가 중앙에 오도록 설정 */
-    position: relative; /* 다른 절대 위치 요소들을 위한 기준 설정 */
+    background-image: url('../images/self2background.png');
+    padding-top: 20px;
 }
 
-.starrycontent {
+.self2content {
     width: 100%;
     height:100%;
     text-align: center;
 }
 
 .title {
-    font-size: 24px;
+    font-size: 18px;
     color: #49296a;
-    margin-bottom: 20px;
-    position:absolute;
-    top: 5%;
-    left: 40%;
-    text-align: center ;
+    margin-top: 20px; /* 이미지와 텍스트 사이의 여백 추가 */
+    margin-bottom: 20px; /* 텍스트 아래에 여백 추가 */
+    line-height: 1.5; /* 텍스트 줄 간격 조정 */
+    left: 7%;
 }
 
 .image-container {
@@ -33,7 +30,7 @@
 }
 
 .vangogh-image {
-    width: 100%;
+    width: 100%;    
     border-radius: 15x;
 }
 
