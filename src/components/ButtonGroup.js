@@ -1,8 +1,10 @@
+import message from '../data/message.json';
 import React, { useState, createContext, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import styled from 'styled-components';
 import './DocentSelect.css';
 import { click } from '@testing-library/user-event/dist/click';
+import { useNavigate } from 'react-router-dom';
 
 const IsClickedContext = createContext(false);
 
@@ -25,22 +27,31 @@ const CustomButton = styled(Button)`
 `;
 
 const ButtonGroup = ({ onButtonClick , bpag }) => {
+    const navigate = useNavigate();
     const [buttons, setButtons] = useState([
-        { text: '잘 모른다', isClicked: false, newMessage: '주 1회 이상' },
-        { text: '어느 정도 안다', isClicked: false, newMessage: '월 1회 정도' },
-        { text: '아주 잘 안다', isClicked: false, newMessage: '거의 가지 않음' },
+        { text: message.survey_unknown, isClicked: false, newMessage: '주 1회 이상' },
+        { text: message.survey_known, isClicked: false, newMessage: '월 1회 정도' },
+        { text: message.survey_wellknown, isClicked: false, newMessage: '거의 가지 않음' },
       ]);
       
     const [isClicked, setIsClicked] = useState(false);
     const [clickedButtons, setClickedButtons] = useState([]);
     
     const handleClick = (button) => {
-      if (clickedButtons.length <= 2) {
+     var answer = 0;
+      if (clickedButtons.length < 1) {
         setIsClicked(true);
         setClickedButtons([...clickedButtons, button.text]);
       } else {
-        console.log('버그발생: 사용자로부터 3개이상의 값을 받아옴.');
+        setClickedButtons(clickedButtons);
         console.log(clickedButtons.length);
+        console.log(button.text);
+        console.log(button);
+        if(button.text === '어느 정도 안다')
+          answer = 1;
+        else if (button.text === '아주 잘 안다')
+          answer = 2;
+        navigate(`/gogh/${encodeURIComponent(answer)}`);
       }};
       return (
             <IsClickedContext.Provider value={{ isClicked, handleClick }}>

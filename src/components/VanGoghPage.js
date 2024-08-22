@@ -1,3 +1,4 @@
+import message from '../data/message.json';
 import React from 'react';
 import './talking.css'; 
 import goghImage from '../images/gogh.png';
@@ -6,8 +7,17 @@ import BurgerButton from './BurgerButton';
 import BackButton from './BackButton';
 import SendButton from './SendButton';
 import NextButton from './NextButton';
-
+import { useParams } from 'react-router-dom';
 function VanGoghPage() {
+    var { answer } = useParams();
+
+    answer = Number(answer);
+    var goghmessage = message.message_unknown;
+    if(answer === 1) {
+        goghmessage = message.message_known;
+    } else if(answer === 2) {
+        goghmessage = message.message_wellknown;
+    }
     return (
         <div className="container">
             <div className="content">
@@ -22,7 +32,7 @@ function VanGoghPage() {
                 </div>
                 <div className="description">
                     <p>
-                        안녕하세요. 이렇게 만나게 되어 반갑습니다. 제 이야기에 관심을 가져주신 것, 정말 감사드립니다. 사실 저는 평범한 삶을 살려고 노력했지만, 항상 마음속에는 설명할 수 없는 감정과 열망이 있었습니다. 저는 캔버스와 물감을 통해 제 감정과 생각을 표현하고자 했습니다.
+                        {goghmessage}
                     </p>
                     <div className="message-bar">
                         <BackButton />

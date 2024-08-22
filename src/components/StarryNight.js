@@ -1,3 +1,4 @@
+import message from '../data/message.json';
 import React from 'react';
 import './talking.css'; 
 import goghImage from '../images/gogh.png';
@@ -22,7 +23,7 @@ function StarryNight() {
                 </div>
                 <div className="description">
                     <p>
-                        안녕하세요.
+                        {message.message_main}
                     </p>
                     <div className="message-bar">
                         <BackButton beforePath="/gogh"/>
