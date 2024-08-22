@@ -1,5 +1,5 @@
 import React from 'react';
-import './PercentPage.css';
+import styles from './PercentPage.module.css';
 import monaLisaImage from '../images/monarisa.png'; // 이미지 경로와 확장자 확인
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -17,13 +17,13 @@ function PercentPage() {
   }, [navigate]);
 
   return (
-    <div className="container">
-      <div className="header">
-      </div>
-      <div className="content">
-        <h1 className="title">PERCENT</h1>
-        <div className="imageContainer">
-          <img className="monaLisa" src={monaLisaImage}alt="Mona Lisa" />
+    <div className={styles.container}>
+      <div className={styles.content}>
+        <div className={styles.title}>
+          <h1>PEŘCENT</h1>
+        </div>
+        <div className={styles.imageContainer}>
+          <img className={styles.monaLisa} src={monaLisaImage}alt="Mona Lisa" />
         </div>
       </div>
     </div>
