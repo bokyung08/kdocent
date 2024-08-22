@@ -1,0 +1,53 @@
+.container {
+  background-color: #f8e9e6;
+  min-width: 390px;
+  max-width :390px;
+  height:844px;
+  text-align: center;
+}
+.content {
+  min-width: 390px;
+  max-width :390px;
+  height:844px;
+  background-color:  #f8e9e6;
+  text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+}
+
+.title {
+  color: #49296a;
+  margin-bottom: 20px;
+  text-align: center;
+  position:absolute;
+  top:25%;
+  font-size: 6vw;
+  font-weight: bold;
+  color: #49296A;
+  margin: 20px 0;
+  font-family: 'Abhaya Libre ExtraBold';
+}
+  .imageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .monaLisa{
+    min-width: 390px;
+    max-width :390px;
+    width: 500px;
+    height: 600px;
+    display: block;
+    position:absolute;
+    top:30%
+}
+.GuestImage{
+  width: '100%';
+  height: '100%';
+} 
+
+  

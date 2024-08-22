@@ -30,7 +30,7 @@ const DocentSelect = () => {
           <div className="old">
             <div className= "background">
               <div className= "percent">
-                PERCENT
+                <h1>PEŘCENT</h1>
               </div>
               {transitions((styles, item) => (
                 <animated.div key={item} style={{ ...styles, width: '390px', height: '844px', backgroundColor: '#FFEDEC' }}>
@@ -38,8 +38,8 @@ const DocentSelect = () => {
                     도슨트를 선택하세요
                   </div>
                 <div className="image">
-                    <img src={AndyImage} alt="andy" width="110" height="100" onClick={handleClick} ></img>
-                    <img src={GochImage} alt="goch" width="80" height="95" onClick={handleClick}></img>
+                    <img src={AndyImage} alt="andy" width="140" height="130" onClick={handleClick} ></img>
+                    <img src={GochImage} alt="goch" width="110" height="130" onClick={handleClick}></img>
                 </div>
 
                 <div className="imagesw">
