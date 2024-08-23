@@ -1,0 +1,83 @@
+/* 챗봇 전체 컨테이너 */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* 반투명한 배경 */
+    backdrop-filter: blur(10px); /* 블러 효과 추가 */
+}
+
+/* 챗봇 내부 콘텐츠 영역 */
+.content {
+    background-color: rgba(255, 255, 255, 0.8); /* 반투명한 흰색 배경 */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+}
+
+/* 제목 스타일 */
+.middletitle {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: rgba(0, 0, 0, 0.85); /* 살짝 투명한 텍스트 */
+}
+
+/* 이미지 컨테이너 */
+.image-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+/* 고흐 이미지 */
+.vangogh-image, .sunflower, .self {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 설명 텍스트 */
+.description p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: rgba(0, 0, 0, 0.8); /* 반투명한 텍스트 */
+}
+
+/* 메시지 바 */
+.message-bar {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* 버튼 스타일 */
+.message-bar button {
+    background-color: rgba(0, 123, 255, 0.7); /* 반투명한 버튼 색상 */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.message-bar button:hover {
+    background-color: rgba(0, 123, 255, 0.9); /* 버튼 호버 시 더 진한 색상 */
+}
+
+/* 입력 필드 스타일 */
+.message-bar .message-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    margin: 0 5px;
+    background-color: rgba(255, 255, 255, 0.7); /* 반투명한 입력 필드 */
+    color: rgba(0, 0, 0, 0.85); /* 살짝 투명한 텍스트 */
+}
