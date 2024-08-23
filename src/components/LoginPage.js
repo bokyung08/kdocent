@@ -3,34 +3,41 @@ import monaLisaImage from '../images/monarisa.png';
 import GuestImage from '../images/Guest.png';
 import naverImage from '../images/naver.png';
 import kakaoImage from '../images/kakao.png';
-import './LoginPage.css'; 
+import styles from './LoginPage.module.css'; 
 import LoginPopup from './LoginPopup';
+import { useNavigate } from 'react-router-dom';
 
 
 function LoginPage() {
     const [isPopupOpen, setPopupOpen] = useState(false);
+    const navigate = useNavigate();
 
-    const togglePopup = () => {
+    const gotoSelectPage = () => {
+        navigate('/select');
+    }
+    const togglePopup = (e) => {
         setPopupOpen(!isPopupOpen);
     };
+    
     return (
-        <div className="container">
-            <div className="header">
-            </div>
-            <div className="content">
-                <h1 className="title">PEŘCENT</h1>
-                <div className="imageContainer">
-                <img className="monaLisaLogin" src={monaLisaImage} alt="Mona Lisa" />
-                <div className="buttonContainer">
+        <div className={styles.container}>
+            <div className={styles.content}>
+                <div className={styles.title}>
+                    <h1>PEŘCENT</h1>
+                </div>
+                <div className={styles.imageContainer}>
+                <img className={styles.monaLisaLogin} src={monaLisaImage} alt="Mona Lisa" />
+                <div className={styles.buttonContainer}>
                 
-                    <button className="guestButton"onClick={togglePopup}>
-                        <img className="guestIcon" src={GuestImage} alt="guest" />                      <span>게스트로 입장</span>
+                    <button className={styles.guestButton} onClick={() => {togglePopup(); gotoSelectPage();}}>
+                        <img className={styles.guestIcon} src={GuestImage} alt="guest" />                      
+                        <span>게스트로 입장</span>
                     </button>
-                    <button className="kakaoButton">
-                        <img className="kakaoIcon" src={kakaoImage} alt="kakao" />
+                    <button className={styles.kakaoButton}>
+                        <img className={styles.kakaoIcon} src={kakaoImage} alt="kakao" />
                     </button>
-                    <button className="naverButton">
-                        <img className="naverIcon" src={naverImage} alt="naver" />
+                    <button className={styles.naverButton}>
+                        <img className={styles.naverIcon} src={naverImage} alt="naver" />
                     </button>
                     </div>
                 </div>
