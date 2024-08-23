@@ -1,0 +1,17 @@
+.home-button{
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    margin: 0;
+    position: fixed;
+    top: 35px;
+    left: 10px;
+    font-size: 40px;
+    color: #000;
+    z-index: 1000;
+}
+
+.home-button:hover {
+    color: #555;
+}
