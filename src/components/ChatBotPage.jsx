@@ -1,5 +1,10 @@
+import styles from './/ChatBotPage.module.css';
+import SendButton from './SendButton';
+import NextButton from './NextButton';
+import BackButton from './BackButton';
+import BurgerButton from './BurgerButton';
 import React, { useState } from 'react';
-
+import TalkLayout from './TalkLayout';
 function Chatbot() {
     const [messages, setMessages] = useState([]);
     const [input, setInput] = useState('');
@@ -36,36 +41,45 @@ function Chatbot() {
     };
 
     return (
-        <div style={{ maxWidth: '600px', margin: '0 auto' }}>
-            <div style={{ border: '1px solid #ccc', padding: '10px', height: '400px', overflowY: 'scroll' }}>
-                {messages.map((message, index) => (
-                    <div
-                        key={index}
-                        style={{
-                            textAlign: message.sender === 'user' ? 'right' : 'left',
-                            margin: '10px 0',
+    
+        <div className={styles.starrycontent}>
+            <BurgerButton />
+            <h1 className={styles.middletitle}>반 고흐</h1>
+            <div style={{ maxWidth: '600px', margin: '0 auto' }}>
+                <div style={{ border: '1px solid #ccc', padding: '10px', height: '400px', overflowY: 'scroll' }}>
+                    {messages.map((message, index) => (
+                        <div
+                            key={index}
+                            style={{
+                                textAlign: message.sender === 'user' ? 'right' : 'left',
+                                margin: '10px 0',
+                            }}
+                        >
+                            {/* <strong>{message.sender === 'user' ? 'You: ' : 'Bot: '}</strong> */}
+                            <TalkLayout text={message.text} from={message.sender} />
+                        </div>
+                        
+                    ))}
+                </div>
+                    <div className={styles.messagebar}>
+                        <BackButton />
+                        <input 
+                            className={styles.messageinput} 
+                            placeholder="메시지" 
+                            type="text" 
+                            value={input}
+                            onChange={(e) => setInput(e.target.value)}
+                            onKeyPress={(e) => {
+                            if (e.key === 'Enter') sendMessage();
                         }}
-                    >
-                        <strong>{message.sender === 'user' ? 'You: ' : 'Bot: '}</strong>
-                        {message.text}
+                        style={{ flex: 1, padding: '10px', border: '1px solid #ccc' }}
+                        />
+                        <SendButton onClick={sendMessage} from="chatbot"/>
+                        <NextButton nextPath="/starry"/>
                     </div>
-                ))}
+                </div>
             </div>
-            <div style={{ display: 'flex', marginTop: '10px' }}>
-                <input
-                    type="text"
-                    value={input}
-                    onChange={(e) => setInput(e.target.value)}
-                    onKeyPress={(e) => {
-                        if (e.key === 'Enter') sendMessage();
-                    }}
-                    style={{ flex: 1, padding: '10px', border: '1px solid #ccc' }}
-                />
-                <button onClick={sendMessage} style={{ padding: '10px' }}>
-                    Send
-                </button>
-            </div>
-        </div>
+        
     );
 }
 
