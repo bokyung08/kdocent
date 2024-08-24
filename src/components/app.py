@@ -9,7 +9,7 @@ from google.api_core.exceptions import TooManyRequests
 from flask_cors import CORS
 
 # Google Generative AI API 키 설정 (본인의 API 키를 여기에 입력하세요)
-myKey =
+myKey ="AIzaSyBtIcEfZHjQUPrpNTTG6NWsloMBsitgGbI"
 genai.configure(api_key=myKey)
 
 # 모델 생성 및 설정
@@ -231,57 +231,39 @@ def clear_conversation_history():
 def clear_conversation_history_file(filename):
     with open(filename, 'w', encoding='utf-8') as f:
         json.dump([], f, ensure_ascii=False, indent=4)
-def chat_with_model(chat_session):
+        
+def chat_with_model(chat_session, user_input):
     """
     사용자와 모델 간의 대화를 진행하는 함수입니다.
-    사용자가 "exit"을 입력할 때까지 대화를 계속합니다.
     동일한 질문을 세 번 이상 반복할 경우, 다른 질문을 유도합니다.
-    각 대화는 대화 이력에 저장됩니다.
     """
-    # 사용자 질문 기록을 위한 딕셔너리 초기화
     question_count = defaultdict(int)
+    question_count[user_input] += 1
 
-    while True:
-        user_input = input("사용자 : ").strip()  # 입력에서 공백 제거
+    if question_count[user_input] > 3:
+        return {"response": "이 질문에 대해서는 이미 충분히 답변드렸습니다. 다른 질문을 해주세요."}
 
-        if not user_input:
-            print("Vincent Docent : 입력이 비어있습니다. 질문을 입력해주세요.")
-            continue
+    retry_attempts = 5  # 재시도 횟수
+    base_delay = 5  # 초기 대기 시간 (초)
 
-        if user_input.lower() == "exit":
-            break
+    for attempt in range(retry_attempts):
+        try:
+            response = chat_session.send_message(user_input)
+            response_text = response.text
 
-        # 질문 기록 업데이트
-        question_count[user_input] += 1
+            conversation_history.append({"input": user_input, "output": response_text})
 
-        if question_count[user_input] > 3:
-            # 중복 질문이 3회 이상인 경우 다른 질문을 유도
-            print("Vincent Docent : 이 질문에 대해서는 이미 충분히 답변드렸습니다. 다른 질문을 해주세요.")
-        else:
-            retry_attempts = 5  # 재시도 횟수
-            for attempt in range(retry_attempts):
-                try:
-                    # 메시지 전송 및 응답 받기
-                    response = chat_session.send_message(user_input)
-                    response_text = response.text
+            return {"response": response_text}
+        except TooManyRequests:
+            if attempt < retry_attempts - 1:
+                delay = base_delay * (2 ** attempt)  # 지수적으로 대기 시간 증가
+                print(f"요청이 많아 잠시 기다립니다. {attempt + 1}번째 시도 중... 대기 시간: {delay}초")
+                time.sleep(delay)
+            else:
+                return {"response": "요청이 너무 많아 더 이상 시도하지 않습니다. 나중에 다시 시도해 주세요."}
 
-                    # 대화 이력 저장
-                    conversation_history.append({"input": user_input, "output": response_text})
-
-                    # 결과 출력
-                    print(f"Vincent Docent : {response_text}")
-                    break  # 성공 시 루프 탈출
-                except TooManyRequests:
-                    if attempt < retry_attempts - 1:
-                        print(f"Vincent Docent : 요청이 많아 잠시 기다립니다. {attempt + 1}번째 시도 중...")
-                        time.sleep(7)  # 7초 대기 후 재시도
-                    else:
-                        print("Vincent Docent : 요청이 너무 많아 더 이상 시도하지 않습니다. 나중에 다시 시도해 주세요.")
-
-        # API 호출 후 일정 시간 대기(3초)
-        time.sleep(3)
-
-
+    return {"response": "알 수 없는 오류가 발생했습니다."}
+    return {"response": "알 수 없는 오류가 발생했습니다."}
 # 파일명
 history_filename = 'conversation_history_test.json'
 

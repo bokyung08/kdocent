@@ -1,0 +1,42 @@
+{
+    "word_birth" : "출생",
+    "word_feature" : "특징",
+    "word_masterpiece" : "대표작",
+    "docents" : [
+        {
+            "eng_name" : "Vincent Willem van Gogh",
+            "kor_name" : "빈센트 반 고흐",
+
+            "birth_area" : "네덜란드 쥔데르트",
+            "since" : "1853. 3. 30. - 1890. 7. 29.",
+            
+            "master_piece" : "해바라기, 별이 빛나는 밤, 자화상",
+
+            "feature" : ["짧고 강렬한 붓질", "탈인상주의", "노랑색 선호"]
+        },
+
+        {
+            "eng_name" : "Andrew Warhola Jr.",
+            "kor_name" : "앤디 워홀",
+
+            "birth_area" : "미국 피츠버그",
+            "since" : "1928. 8. 6. - 1987. 2. 22.",
+
+            "master_piece" : "마릴린 멀로, 여덟명의 앨비스",
+
+            "feature" : ["화려한 색채", "시각주의", "팝 아트"]
+        },
+
+        {
+            "eng_name" : "Pablo Picasso",
+            "kor_name" : "파블로 피카소",
+
+            "birth_area" : "스페인 말라가",
+            "since" : "1881. 10. 25. - 1973. 4. 8.",
+
+            "master_piece" : "게르니카, 아비뇽의 처녀들, 우는 여인",
+
+            "feature" : ["입체파 창시자", "다양한 스타일", "끊임없는 실험"]
+        }
+    ]
+}
