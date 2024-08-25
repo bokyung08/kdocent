@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './PercentPage.module.css';
+import styles from './LoginPage.module.css';
 import monaLisaImage from '../images/monarisa.png'; // 이미지 경로와 확장자 확인
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';

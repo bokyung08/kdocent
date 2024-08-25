@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function SendButton() {
+function SendButton({onClick, from = 'none'}) {
     const navigate = useNavigate();
 
     const handleClick = () => {
@@ -9,7 +9,9 @@ function SendButton() {
     };
 
     return (
-        <button className="send-button" onClick={handleClick}>✉️</button>
+    <>
+        <button className="send-button" onClick={ () => {handleClick(); from === "chatbot" && onClick()}}>✉️</button>
+    </>
     );
 }
 
