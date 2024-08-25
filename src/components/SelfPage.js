@@ -1,4 +1,5 @@
-import React from 'react';
+import React,{useState} from 'react';
+import { useNavigate } from 'react-router-dom'; 
 import './talking.css';  
 import self2Image from '../images/self.png';
 import homeImage from '../images/home.png';   
@@ -6,8 +7,10 @@ import BurgerButton from './BurgerButton';
 import BackButton from './BackButton';
 import SendButton from './SendButton';
 import NextButton from './NextButton';
+import Input from './Input';
 
 function SelfPage() {
+    const [message, setMessage] = useState('');
     return (
         <div className="selfcontainer">
             <div className="selfcontent">
@@ -26,10 +29,11 @@ function SelfPage() {
                     </p>
                     <div className="message-bar">
                         <BackButton beforePath="/sunflower"/>
-                        <input 
-                            className="message-input" 
-                            type="text" 
-                            placeholder="메시지" 
+                        <Input 
+                            value={message}
+                            onChange={(e) => setMessage(e.target.value)} 
+                            placeholder="메시지"
+                        />aceholder="메시지" 
                         />
                         <SendButton />
                         <NextButton nextPath="/self2"/>

@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; 
 import './talking.css'; 
 import sunflowerImage from '../images/sunflower.png';
-import homeImage from '../images/home.png';   
 import BurgerButton from './BurgerButton';
 import BackButton from './BackButton';
 import SendButton from './SendButton';
 import NextButton from './NextButton';
+import Input from './Input'; // 수정된 Input 컴포넌트를 가져옴
 
 function SunflowerPage() {
+    const [message, setMessage] = useState('');
+
     return (
         <div className="sunflowercontainer">
             <div className="sunflowercontent">
@@ -26,12 +29,12 @@ function SunflowerPage() {
                     </p>
                     <div className="message-bar">
                         <BackButton beforePath="/starry" />
-                        <input 
-                            className="message-input" 
-                            type="text" 
-                            placeholder="메시지" 
+                        <Input 
+                            value={message}
+                            onChange={(e) => setMessage(e.target.value)} 
+                            placeholder="메시지"
                         />
-                        <SendButton />
+                        <SendButton /> 
                         <NextButton nextPath="/self"/>
                     </div>
                 </div>
