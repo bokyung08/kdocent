@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function Chatbot() {
+function goghChat() {
     const [messages, setMessages] = useState([]);
     const [input, setInput] = useState('');
 
@@ -11,7 +11,7 @@ function Chatbot() {
         setMessages((prevMessages) => [...prevMessages, newMessage]);
 
         try {
-            const response = await fetch('http://localhost:5000/ask', {  // 수정된 URL
+            const response = await fetch('http://localhost:5000/gogh', {  // 수정된 URL
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -69,4 +69,4 @@ function Chatbot() {
     );
 }
 
-export default Chatbot;
+export default goghChat;
