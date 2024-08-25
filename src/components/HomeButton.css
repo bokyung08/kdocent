@@ -2,12 +2,11 @@
     background: none;
     border: none;
     cursor: pointer;
-    padding: 10px;
-    margin: 0;
-    position: fixed;
-    top: 4.7%;
-    left: 5%;
+    position: absolute;
+    width: 10%;
+    height: 10%;
     font-size: 45px;
+    right: 80%;
     color: #000;
     z-index: 1000;
 }

@@ -26,6 +26,8 @@ const CustomButton = styled(Button)`
   z-index: 1;
 `;
 
+    var answer = 0;
+    var snd_answer = 0;
 const ButtonGroup = ({ onButtonClick , bpag }) => {
     const navigate = useNavigate();
     const [buttons, setButtons] = useState([
@@ -38,20 +40,19 @@ const ButtonGroup = ({ onButtonClick , bpag }) => {
     const [clickedButtons, setClickedButtons] = useState([]);
     
     const handleClick = (button) => {
-     var answer = 0;
-      if (clickedButtons.length < 1) {
+      console.log(button.text);
+      console.log(clickedButtons.length);
+      if (clickedButtons.length < 1) { // 정말 뭐지 싶은 코드지만 시간이 없고 어찌됐던 결과는 원하는대로 동작하는 듯하다. 난 이 코드를 이해할 수 없다.
         setIsClicked(true);
         setClickedButtons([...clickedButtons, button.text]);
-      } else {
-        setClickedButtons(clickedButtons);
-        console.log(clickedButtons.length);
-        console.log(button.text);
-        console.log(button);
         if(button.text === '어느 정도 안다')
           answer = 1;
         else if (button.text === '아주 잘 안다')
           answer = 2;
-        navigate(`/gogh/${encodeURIComponent(answer)}`);
+      } else {
+        snd_answer = button.newMessage === '월 1회 정도' ? 1 : 2;
+        navigate(`/gogh/answer=${answer}/snd_answer=${snd_answer}`);
+        
       }};
       return (
             <IsClickedContext.Provider value={{ isClicked, handleClick }}>
