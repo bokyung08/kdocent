@@ -1,0 +1,20 @@
+.custombackbutton {
+    background-color: #efd0fa;
+    border: none;
+    box-shadow:  0px 5px 10px rgba(0, 0, 0, 0.2); /* 그림자 효과 */;
+    border-radius: 5px;
+    padding: 10px 20px;
+    color: #fff;
+    font-size: 16px;
+  }
+
+  .custombackbutton:hover {
+    background-color: #d3a4fe;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.4);
+}
+
+.custombackbutton:active {
+    background-color: #b07bff;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+    transform: translateY(2px);
+}

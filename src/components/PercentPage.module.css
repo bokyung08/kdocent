@@ -1,14 +1,14 @@
 .container {
-  background-color: #f8e9e6;
-  min-width: 390px;
-  max-width :390px;
-  height:844px;
-  text-align: center;
+  display: flex;
+  flex-flow: row;
+  align-content: flex-end;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
 }
 .content {
-  min-width: 390px;
-  max-width :390px;
-  height:844px;
+  max-width: 46vh;
+  height: 100vh;
   background-color:  #f8e9e6;
   text-align: center;
   flex: 1;
@@ -16,7 +16,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 1em;
+  text-align: center;
+  position: relative;
 }
 
 .title {
@@ -37,13 +38,17 @@
     align-items: center;
   }
   .monaLisa{
-    min-width: 390px;
-    max-width :390px;
-    width: 500px;
-    height: 600px;
+    position: absolute;
+    /* min-width: 390px; */
+    /* max-width :390px; */
+    /* width: 500px; */
+    /* height: 600px; */
+    width: 100%;
+    height: 65%;
     display: block;
     position:absolute;
-    top:30%
+    top:35%;
+    opacity: 1;
 }
 .GuestImage{
   width: '100%';
