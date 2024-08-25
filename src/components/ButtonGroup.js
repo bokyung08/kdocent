@@ -2,7 +2,7 @@ import message from '../data/message.json';
 import React, { useState, createContext, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import styled from 'styled-components';
-import './DocentSelect.css';
+import styles from './DocentSelect.module.css';
 import { click } from '@testing-library/user-event/dist/click';
 import { useNavigate } from 'react-router-dom';
 

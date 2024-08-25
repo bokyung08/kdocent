@@ -1,0 +1,100 @@
+.container {
+  display: flex;
+  flex-flow: row;
+  align-content: flex-end;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+}
+.title {
+  color: #49296a;
+  margin-bottom: 20px;
+  position: absolute;
+  top:5%;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #49296A;
+  margin: 20px 0;
+  font-family: 'Abhaya Libre ExtraBold';
+
+}
+.content {
+  max-width: 46vh;
+  height: 100vh;
+  background-color:  #f8e9e6;
+  text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+
+}
+
+.text{
+    color: #000;
+    width: 100%;
+    height: 100%;
+}
+
+.monarisa{
+  position: absolute;
+  /* min-width: 390px; */
+  /* max-width :390px; */
+  /* width: 500px; */
+  /* height: 600px; */
+  background-image: url(../images/monarisa.png);
+  overflow: hidden;
+  background-position: center;
+  background-size: 20rem;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 65%;
+  display: block;
+  top: 37%;
+  opacity: 0.5;
+}
+/* Bpage.css */
+@import 'animate.css';
+
+
+.buttonContainer{
+  width: 100%;
+  padding-top: 75%;
+}
+.slidedown {
+  animation: slideDown 0.5s ease-in-out;
+  width: 100%;
+  height: 100%;
+}
+
+.slideup {
+  animation: slideUp cubic-bezier(0.165, 0.84, 0.44, 1) ease-in-out;
+  width: 100%;
+  height: 100%;
+}
+
+
+@keyframes slideDown {
+  from {
+    transform: translateY(50%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

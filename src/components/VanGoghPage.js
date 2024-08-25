@@ -2,7 +2,7 @@ import message from '../data/message.json';
 import React,{useState} from 'react';
 import './talking.css'; 
 import goghImage from '../images/gogh.png';
-import homeImage from '../images/home.png';   
+import HomeButton from '../components/HomeButton'
 import BurgerButton from './BurgerButton';
 import BackButton from './BackButton';
 import SendButton from './SendButton';
@@ -24,6 +24,7 @@ function VanGoghPage() {
     return (
         <div className="container">
             <div className="content">
+                <div className='home'><HomeButton></HomeButton></div>
                 <div className='burger'><BurgerButton /></div>
                 <h1 className="middletitle">반 고흐</h1>
                 <div className="image-container">
