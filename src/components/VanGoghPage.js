@@ -22,10 +22,17 @@ function VanGoghPage() {
         goghmessage = message.message_wellknown;
     }
     return (
-        <div className={styles.container}>
-            <div className={styles.content}>
-                <div className={styles.title}>
-                    <h3>반 고흐</h3>
+        <div className="container">
+            <div className="content">
+                <div className='home'><HomeButton></HomeButton></div>
+                <div className='burger'><BurgerButton /></div>
+                <h1 className="middletitle">반 고흐</h1>
+                <div className="image-container">
+                    <img 
+                        className="vangogh-image" 
+                        src={goghImage}
+                        alt="반 고흐"
+                    />
                 </div>
                 <div className="description">
                     <p>

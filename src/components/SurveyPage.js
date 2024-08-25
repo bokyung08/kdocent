@@ -24,6 +24,7 @@ const SurveyPage = () => {
     useEffect(() => {
         setMessage(`${author} ${particle} 얼마나 아시나요?`);
     }, [author, particle]);
+    
     const setIsMuseumMessage = () => {
         setMessage("전시회를 얼마나 자주 가시나요?");
     }
@@ -38,7 +39,7 @@ const SurveyPage = () => {
                     <div className={styles.text}>
                         <div className={styles.slidedown}>
                             <div className={styles.buttonContainer}>
-                                <SurveyButton bpag={setIsMuseumMessage} />   
+                                <SurveyButton setMessage={setIsMuseumMessage} />   
                             </div>                 
                         </div>
                     </div>

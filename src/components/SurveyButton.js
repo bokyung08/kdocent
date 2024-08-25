@@ -1,6 +1,6 @@
 import message from '../data/message.json';
 import React, { useState, createContext, useEffect } from 'react';
-import surveyObject from 'react-bootstrap/surveyObject';
+import Button from 'react-bootstrap/Button';
 import styled from 'styled-components';
 import styles from './DocentSelect.module.css';
 import { click } from '@testing-library/user-event/dist/click';
@@ -8,13 +8,13 @@ import { useNavigate } from 'react-router-dom';
 
 const IsClickedContext = createContext(false);
 
-const VerticalSurveysurveyObject = styled.div`
+const VerticalSurveyButton = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 
-const CustomsurveyObject = styled(surveyObject)`
+const CustomButton = styled(Button)`
   padding: 1rem 2rem;
   border-radius: 30px;
   font-size: 18px;
@@ -25,7 +25,7 @@ const CustomsurveyObject = styled(surveyObject)`
   margin-bottom: 40px;
   z-index: 1;
 `;
-const SurveysurveyObject = (props) => {
+const SurveyButton = (props) => {
     const navigate = useNavigate();
     const [author_answer, setAuthorAnswer] = useState(0);
     const [museum_answer, setMuseumAnswer] = useState(0);
@@ -46,9 +46,9 @@ const SurveysurveyObject = (props) => {
         setIsClicked(true);
         setClickedsurveyData([...clickedsurveyData, surveyObject.text]);
         if(surveyObject.text === '어느 정도 안다')
-          author_answer = 1;
+          setAuthorAnswer(1);
         else if (surveyObject.text === '아주 잘 안다')
-          author_answer = 2;
+          setAuthorAnswer(2);
       } else {
         setMuseumAnswer(surveyObject.newMessage === '월 1회 정도' ? 1 : 2);
         navigate(`/gogh/author_answer=${author_answer}/museum_answer=${museum_answer}`);
@@ -56,20 +56,20 @@ const SurveysurveyObject = (props) => {
       }};
       return (
             <IsClickedContext.Provider value={{ isClicked, handleClick }}>
-                <VerticalSurveysurveyObject>
+                <VerticalSurveyButton>
                     {surveyData.map((surveyObject, index) => (
                       
-                    <CustomsurveyObject key={index} variant="dark" onClick={() => {
+                    <CustomButton key={index} variant="dark" onClick={() => {
                             handleClick(surveyObject);
                             props.setMessage();
                         }}
                     >
                         {isClicked ? surveyObject.newMessage : surveyObject.text}
-                    </CustomsurveyObject>
+                    </CustomButton>
                     ))}
-                </VerticalSurveysurveyObject>
+                </VerticalSurveyButton>
         </IsClickedContext.Provider>
       );
     }
 
-export default SurveysurveyObject;
+export default SurveyButton;
