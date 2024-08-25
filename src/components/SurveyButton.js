@@ -25,13 +25,13 @@ const CustomsurveyObject = styled(surveyObject)`
   margin-bottom: 40px;
   z-index: 1;
 `;
-const SurveysurveyObject = ({ onsurveyObjectClick , bpag }) => {
+const SurveysurveyObject = (props) => {
     const navigate = useNavigate();
     const [author_answer, setAuthorAnswer] = useState(0);
-    const [mueseum_answer, setMuseumAnswer] = useState(0);
+    const [museum_answer, setMuseumAnswer] = useState(0);
     // author_answer { "0" : "잘 모른다", "1" : "어느 정도 안다", "2" : "아주 잘 안다" }
     // museum_answer { "0" : "주 1회 이상", "1" : "월 1회 정도", "2", "거의 가지 않음" }
-    
+
     const [surveyData, setsurveyData] = useState([
         { text: message.survey_unknown, isClicked: false, newMessage: '주 1회 이상' },
         { text: message.survey_known, isClicked: false, newMessage: '월 1회 정도' },
@@ -61,7 +61,7 @@ const SurveysurveyObject = ({ onsurveyObjectClick , bpag }) => {
                       
                     <CustomsurveyObject key={index} variant="dark" onClick={() => {
                             handleClick(surveyObject);
-                            bpag();
+                            props.setMessage();
                         }}
                     >
                         {isClicked ? surveyObject.newMessage : surveyObject.text}
