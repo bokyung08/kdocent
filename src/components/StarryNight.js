@@ -1,5 +1,6 @@
 import message from '../data/message.json';
-import React from 'react';
+import React, {useState} from 'react';
+import { useNavigate } from 'react-router-dom'; 
 import './talking.css'; 
 import goghImage from '../images/gogh.png';
 import homeImage from '../images/home.png';   
@@ -7,8 +8,9 @@ import BurgerButton from './BurgerButton';
 import BackButton from './BackButton';
 import SendButton from './SendButton';
 import NextButton from './NextButton';
-
+import Input from './Input'; // 수정된 Input 컴포넌트를 가져옴
 function StarryNight() {
+    const [message, setMessage] = useState('');
     return (
         <div className="starrycontainer">
             <div className="starrycontent">
@@ -27,10 +29,10 @@ function StarryNight() {
                     </p>
                     <div className="message-bar">
                         <BackButton beforePath="/gogh"/>
-                        <input 
-                            className="message-input" 
-                            type="text" 
-                            placeholder="메시지" 
+                        <Input 
+                            value={message}
+                            onChange={(e) => setMessage(e.target.value)} 
+                            placeholder="메시지"
                         />
                         <SendButton />
                         <NextButton nextPath="/sunflower" />

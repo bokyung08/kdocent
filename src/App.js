@@ -9,8 +9,8 @@ import Self from './components/SelfPage';
 import Self2 from './components/Self2Page';
 import DocentSelect from './components/DocentSelect';
 import SurveyPage from './components/SurveyPage';
-import ChatBotPage from './components/ChatBotPage';
-
+import ChatBotPage from './components/chatApp';
+import LoginPopup from './components/LoginPopup';
 function App() {
   return (
     <Router>
@@ -25,6 +25,7 @@ function App() {
         <Route path="/self" element={<Self />} />
         <Route path="/self2" element={<Self2 />} />
         <Route path="/chatbot" element={<ChatBotPage />} />
+        <Route path="/assign" element={<LoginPopup />} />
       </Routes>
     </Router>      
   );
