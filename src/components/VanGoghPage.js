@@ -48,7 +48,7 @@ function VanGoghPage() {
                     <div className={styles.message_bar}>
                         <BackButton />
                         <Input 
-                            value={message}
+                            
                             onChange={(e) => setMessage(e.target.value)} 
                             placeholder="메시지"
                         />
