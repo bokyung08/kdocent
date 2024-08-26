@@ -10,7 +10,7 @@ function SendButton({onClick, from = 'none', author_answer, museum_answer}) {
 
     return (
     <>
-        <button className="send-button" onClick={ () => {handleClick(); from === "chatbot" && onClick()}}>✉️</button>
+        <button className="send-button" onClick={ () => {handleClick(); from === "chatbot" && onClick()}}>➢</button>
     </>
     );
 }

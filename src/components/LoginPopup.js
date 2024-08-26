@@ -9,12 +9,7 @@ function Login() {
 
     const handleLogin = (e) => {
         e.preventDefault();
-
-        // 여기에 로그인 로직을 추가할 수 있습니다.
-        // 예를 들어, 서버로부터 사용자 인증을 받는 작업 등을 수행할 수 있습니다.
-
-        // 로그인 성공 시 다른 페이지로 이동 (예: 대시보드 페이지)
-        navigate('/dashboard');
+        navigate('/survey/:alt');
     };
 
     return (
@@ -23,7 +18,7 @@ function Login() {
                 <h1>로그인</h1>
                 <form onSubmit={handleLogin} className={styles.loginForm}>
                     <div className={styles.formGroup}>
-                        <label htmlFor="username">사용자 이름</label>
+                        <label htmlFor="username">ID</label>
                         <input
                             type="text"
                             id="username"
@@ -33,7 +28,7 @@ function Login() {
                         />
                     </div>
                     <div className={styles.formGroup}>
-                        <label htmlFor="password">비밀번호</label>
+                        <label htmlFor="password">password</label>
                         <input
                             type="password"
                             id="password"
