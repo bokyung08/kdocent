@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useParams, useNavigate} from 'react-router-dom';
 import styles from './ChatBotPage.module.css';
 
 function ChatApp() {
@@ -10,6 +10,11 @@ function ChatApp() {
     const [selectedModel, setSelectedModel] = useState(location.state?.selectedModel || 'picasso');
     const [loading, setLoading] = useState(false);
     const endOfMessagesRef = useRef(null);
+    const pathname = location.pathname;
+    const author_answer = parseInt(pathname.substring(pathname.indexOf("author_answer=")+14, pathname.indexOf("author_answer=")+15));
+    const museum_answer = parseInt(pathname.substring(pathname.indexOf("museum_answer=")+14, pathname.indexOf("museum_answer=")+15));
+    // author_answer { "0" : "잘 모른다", "1" : "어느 정도 안다", "2" : "아주 잘 안다" }
+    // museum_answer { "0" : "주 1회 이상", "1" : "월 1회 정도", "2", "거의 가지 않음" }
 
     const artistNames = {
         pikaso: "Pablo Picasso",
@@ -18,7 +23,7 @@ function ChatApp() {
     };
 
     const artistName = artistNames[selectedModel] || 'Art';
-
+  
     useEffect(() => {
         if (location.state?.initialMessage) {
             setInput(location.state.initialMessage);
