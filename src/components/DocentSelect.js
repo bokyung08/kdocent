@@ -8,7 +8,7 @@ import { useSpring, animated, useTransition } from 'react-spring';
 import { Button } from 'react-bootstrap';
 import CustomBackButton from './CustomBackButton';
 import SelectButton from './SelectButton';
-import data from '../data/docent.json';
+import data from '../data/docentData/docent.json';
 const DocentSelect = () => {
     const navigate = useNavigate();
     const [isPopup, setisPopup] = useState(false);
@@ -40,9 +40,9 @@ const DocentSelect = () => {
 
       const prevClickHandle = () => {
         setisPopup(!isPopup);
-      };
+      }; 
 
-      const handleClick = () => {
+      const handleClick = (e) => {
         setTimeout(() => {
             navigate(`/survey/${encodeURIComponent(altText)}`);
         }, 500);
@@ -65,25 +65,26 @@ const DocentSelect = () => {
             {
               (isPopup) && (
                 <div className= {styles.backgroundColor}>
+                  <div className= {styles.popupTextContainer}>
                   {popup}
-                  <div className={styles.textContainer}>
-                    {data &&(
-                    <div className={styles.text}>
-                    <p>{data.docents[isDocentsID].eng_name}</p>
-                    <p style={{fontSize:'0.8rem', fontWeight:'bold', marginTop: '0.3rem'}}>{data.docents[isDocentsID].kor_name}</p>
-                    <p style={{fontSize:'0.4rem'}}>{data.docents[isDocentsID].since}</p>
-                    <p style={{marginTop: '0.8rem'}}>출생</p>
-                    <p>{data.docents[isDocentsID].birth_area}</p>
-                    <p style={{marginTop: '0.8rem'}}>대표작</p>
-                    <p style={{fontSize: '0.5rem'}}>{data.docents[isDocentsID].master_piece}</p>
-                    <p style={{marginTop: '0.8rem'}}>특징</p>
-                    <p>{data.docents[isDocentsID].feature[0]}</p>
-                    <p>{data.docents[isDocentsID].feature[1]}</p>
-                    <p>{data.docents[isDocentsID].feature[2]}</p>
-                    
-                    </div>
-                    )
-                    }
+                    <div className={styles.textContainer}>
+                        {data &&(
+                        <div className={styles.text}>
+                          <p style={{fontSize:'2.5vh', fontWeight:'400', marginBottom: '1vh', fontFamily: 'sans-serif'}}> {data.docents[isDocentsID].eng_name}</p>
+                          <p style={{fontSize:'3.5vh', fontWeight:'900', margin: '0', fontFamily:'F'}}>{data.docents[isDocentsID].kor_name}</p>
+                          <p style={{fontSize:'1.8vh', fontWeight:'400', margin: '0'}}>{data.docents[isDocentsID].since}</p>
+                          <p style={{fontSize:'2.5vh', fontWeight:'600', marginBottom: '0', marginTop: '4vh'}}>출생</p>
+                          <p style={{fontSize:'2.0vh', fontWeight:'600', marginBottom: '0', marginTop: '1vh'}}>{data.docents[isDocentsID].birth_area}</p>
+                          <p style={{fontSize:'2.5vh', fontWeight:'600', marginBottom: '0', marginTop: '4vh'}}>대표작</p>
+                          <p style={{fontSize:'1.7vh', fontWeight:'600', marginBottom: '0', marginTop: '1vh'}}>{data.docents[isDocentsID].master_piece}</p>
+                          <p style={{fontSize:'2.5vh', fontWeight:'600', marginBottom: '0', marginTop: '4vh'}}>특징</p>
+                          <p style={{fontSize:'1.8vh', fontWeight:'600', marginBottom: '0', marginTop: '1vh'}}>{data.docents[isDocentsID].feature[0]}</p>
+                          <p style={{fontSize:'1.8vh', fontWeight:'600', marginBottom: '0', marginTop: '1vh'}}>{data.docents[isDocentsID].feature[1]}</p>
+                          <p style={{fontSize:'1.8vh', fontWeight:'600', marginBottom: '0', marginTop: '1vh'}}>{data.docents[isDocentsID].feature[2]}</p>
+                        </div>
+                        )
+                      }
+                      </div>
                   </div>
                     <div className={styles.ButtonContainer}>
                     <CustomBackButton className={styles.arrowcontainer} prevClickHandle= {prevClickHandle}/>

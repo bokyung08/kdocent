@@ -34,7 +34,7 @@ const SurveyPage = () => {
                 <div className= {styles.content}>
                     <div className= {styles.title}>
                         <h1>PEŘCENT</h1>
-                        <h6>{message}</h6>
+                        <h4 style={{paddingTop: '15vh', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)'}}>{message}</h4>
                     </div>
                     <div className={styles.text}>
                         <div className={styles.slidedown}>

@@ -1,58 +1,91 @@
 .container {
-    display: flex;
-    flex-flow: row;
-    align-content: flex-end;
-    width: 100vw;
-    height: 100vh;
-    justify-content: center;
-  }
-  .title {
-    color: #49296a;
-    margin-bottom: 20px;
-    position: absolute;
-    top:0%;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #49296A;
-    margin: 20px 0;
-    font-family: 'Abhaya Libre ExtraBold';
-  
-  }
-  .home{
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
-    flex-direction: row;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-  }
-  .burger{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-  }
-  .content {
-    max-width: 46vh;
-    height: 100vh;
-    background-color:  #f8e9e6;
-    text-align: center;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    position: relative;
-  }
-.mainlayout{
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    width: 100%;
-    height: 100%;
+  display: flex;
+  flex-flow: row;
+  align-content: flex-end;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
 }
+
+.artist_background {
+  position: absolute;
+  top: 10%;
+  width: 45vh;
+  height: 65vh;
+}
+
+
+.content {
+  width: 46vh;
+  max-width: 46vh;
+  height: 100vh;
+  background-color: #f8e9e6;
+  display: flex;
+  flex-flow: column;
+  /* align-items: center; */
+  justify-content: flex-start;
+}
+.widget_bar {
+  display: flex;
+  height: 5vh;
+  width: 100%;
+  flex-flow: row;
+  justify-content: space-between;
+}
+.home{
+  /* width: 100%; */
+  /* height: 100%; */
+}
+.burger{
+  /* width: 100%; */
+  /* height: 100%; */
+}
+
+
+.middletitle {
+  font-size: 3vh; /* 폰트 크기 조정 */
+  color: #49296a;  /* 폰트 색상 설정 */
+  text-align: center; /* 텍스트를 가운데 정렬 */
+  padding-top: 0.5vh;
+  margin: 0px;
+}
+
+.message_box {
+  display: block;
+  /* width: 100%; */
+  /* height: 30%; */
+  top: 50%;
+}
+
+.description {
+  top: 30%;
+  width: 100%;
+  height: 30%;
+  position: relative;
+  background-color: #f0f0f0;
+  z-index: 2;
+  font-weight: bold;
+  line-height: 1.6;
+  color: #333;
+  overflow-y: auto; /* 내용이 넘칠 경우 세로 스크롤 */
+  overflow-x: hidden; /* 가로 스크롤은 숨기기 */
+  opacity: 0.8;
+}
+
+
+.message_bar {
+  display: flex;
+  align-items: center;
+  background-color: #f0f0f0;
+  height: 30vh;
+}
+
+
+
+
+
+
+
 
 .gogh{
     position: static;
@@ -77,20 +110,7 @@
     overflow-y: scroll;
     font-size: 0.7rem;
 }
-.description {
-    width: 100%;
-    height: 30%;
-    position: relative;
-    background-color: #f0f0f0;
-    border-radius: 15px;
-    z-index: 2;
-    font-weight: bold;
-    line-height: 1.6;
-    color: #333;
-    overflow-y: auto; /* 내용이 넘칠 경우 세로 스크롤 */
-    overflow-x: hidden; /* 가로 스크롤은 숨기기 */
-    opacity: 0.8;
-}
+
 
 
 .messagebar {
@@ -136,3 +156,111 @@
 .sendbutton:hover, .backbutton:hover, .nextbutton:hover {
     color: #000;
 }
+
+
+.starrycontainer {
+  min-width: 390px;
+  max-width :390px;
+  height:844px;
+  background-image: url('../images/night.png'); /* 배경 이미지 설정 */
+  background-size: cover; /* 배경 이미지가 전체를 덮도록 설정 */
+  background-position: center; /* 배경 이미지가 중앙에 오도록 설정 */
+  position: relative; /* 다른 절대 위치 요소들을 위한 기준 설정 */
+}
+
+.starrycontent {
+  min-width: 390px;
+  max-width :390px;
+  height:844px;
+  text-align: center;
+  background-image: url('../images/night.png');
+}
+.selfcontainer {
+  min-width: 390px;
+  max-width :390px;
+  height:844px;
+  text-align: center;
+
+  background-image: url('../images/selfbackground.png');
+}
+
+.selfcontent {
+  min-width: 390px;
+  max-width :390px;
+  height:844px;
+  text-align: center;
+  background-image: url('../images/selfbackground.png');
+}
+
+.self2container {
+  min-width: 390px;
+  max-width :390px;
+  height:844px;
+  text-align: center;
+
+  background-image: url('../images/self2background.png');
+}
+
+.self2content {
+  min-width: 390px;
+  max-width :390px;
+  height:844px;
+
+  text-align: center;
+  background-image: url('../images/self2background.png');
+}
+
+
+.sunflowercontainer {
+  min-width: 390px;
+  max-width :390px;
+  height:844px;
+  text-align: center;
+  background-image: url('../images/sunflowerbackground.png');
+}
+
+.sunflowercontent {
+  
+      min-width: 390px;
+      max-width :390px;
+      height:844px;
+      text-align: center;
+      background-image: url('../images/sunflowerbackground.png');
+}
+
+
+
+
+
+.message-input {
+  flex-grow: 1;
+  border: none;
+  border-radius: 12px;
+  position: relative;
+  background: #FFF;
+  outline: none;
+  font-size: 18px;
+  padding: 8px 10px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.send-button, .back-button, .next-button {
+  position: relative;
+  background: #FFF;
+  z-index: 3;
+  border: 0;
+  border-radius: 10px;
+  font-size: 18px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  opacity: 1;
+  cursor: pointer;
+  margin: 3px;
+  padding: 8px;
+  color: #555;
+  font-weight: bold;
+}
+
+.send-button:hover, .back-button:hover, .next-button:hover {
+  color: #000;
+}
+

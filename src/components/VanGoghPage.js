@@ -10,6 +10,8 @@ import NextButton from './NextButton';
 import { useNavigate } from 'react-router-dom'; 
 import Input from'./Input'
 import { useParams } from 'react-router-dom';
+import styles from './VanGoghPage.module.css'
+
 
 function VanGoghPage() {
     const { author_answer, museum_answer } = useParams();
@@ -23,23 +25,27 @@ function VanGoghPage() {
         setMessage(MessageData.message_wellknown);
     }
     return (
-        <div className="container">
-            <div className="content">
-                <div className='home'><HomeButton></HomeButton></div>
-                <div className='burger'><BurgerButton /></div>
-                <h1 className="middletitle">반 고흐</h1>
-                <div className="image-container">
-                    <img 
-                        className="vangogh-image" 
-                        src={goghImage}
-                        alt="반 고흐"
-                    />
+        <div className={styles.container}>
+            <img 
+                className={styles.artist_background}
+                src={goghImage}
+                alt="반 고흐"
+            />
+            <div className={styles.content}>
+                <div className={styles.widget_bar}>
+                    <div className={styles.home}><HomeButton/></div>
+                    <h1 className={styles.middletitle}>반 고흐</h1>
+                    <div className={styles.burger}><BurgerButton/></div>
                 </div>
-                <div className="description">
-                    <p>
-                        {message}
-                    </p>
-                    <div className="message-bar">
+                
+                <div className={styles.message_box}>
+                    <div className={styles.description}>
+                        <p>
+                            {message}
+                        </p>
+                    </div>
+
+                    <div className={styles.message_bar}>
                         <BackButton />
                         <Input 
                             
