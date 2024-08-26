@@ -31,8 +31,8 @@ function App() {
         <Route path="/assign" element={<LoginPopup />} />
         <Route path="/chatbot" element={<ChatBotPage />} />
         <Route path="/sign" element={<SignPage />} />
-        <Route path="/sign" element={<SignUpPage />} />
-        <Route path="/sign" element={<LastPage />} />
+        <Route path="/signup" element={<SignUpPage />} />
+        <Route path="/last" element={<LastPage />} />
         
       </Routes>
     </Router>      

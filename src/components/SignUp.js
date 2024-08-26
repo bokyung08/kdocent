@@ -13,9 +13,11 @@ function LoginPage() {
     }
 
     const handleSignup = () => {
-        navigate('/SignPage'); // '/chatbot' 경로로 이동
+        navigate('/sign'); 
     };
-
+    const handleLast = () => {
+        navigate('/last'); 
+    };
     return (
         <div className={styles.container}>
             <div className={styles.content}>
@@ -29,9 +31,9 @@ function LoginPage() {
                             <img className={styles.guestIcon} src={GuestImage} alt="guest" />
                             <span>게스트 회원가입</span>
                         </button>
-                        <a href="https://forms.gle/NaTiTkafoVe8UsUSA" className={styles.guestButton}>
-                        <span>만족도 조사</span>
-                        </a>
+                        <button className={styles.guestButton} onClick={handleLast}> 
+                            <span>넘어가기</span>
+                        </button>
                     </div>
                 </div>
             </div>
