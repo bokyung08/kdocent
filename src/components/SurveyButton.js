@@ -45,13 +45,13 @@ const SurveyButton = (props) => {
       if (clickedsurveyData.length < 1) {
         setIsClicked(true);
         setClickedsurveyData([...clickedsurveyData, surveyObject.text]);
-        if(surveyObject.text === '어느 정도 안다')
-          setAuthorAnswer(1);
-        else if (surveyObject.text === '아주 잘 안다')
-          setAuthorAnswer(2);
+        setAuthorAnswer(surveyObject.text === '어느 정도 안다' ? 1 : surveyObject.text === '아주 잘 안다' ? 2 : 0);
+        console.log(surveyObject.text);
       } else {
-        setMuseumAnswer(surveyObject.newMessage === '월 1회 정도' ? 1 : 2);
-        navigate(`/gogh/author_answer=${author_answer}/museum_answer=${museum_answer}`);
+        setMuseumAnswer(surveyObject.newMessage === '월 1회 정도' ? 1 : surveyObject.newMessage === '거의 가지 않음' ? 2 : 0 );
+        console.log(surveyObject.newMessage === '월 1회 정도' ? 1 : surveyObject.newMessage === '거의 가지 않음' ? 2 : 0);
+        // ? 왜 안되지 
+        navigate(`/gogh/author_answer=${author_answer}/museum_answer=${surveyObject.newMessage === '월 1회 정도' ? 1 : surveyObject.newMessage === '거의 가지 않음' ? 2 : 0}`);
         
       }};
       return (

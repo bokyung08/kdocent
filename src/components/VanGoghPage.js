@@ -1,4 +1,4 @@
-import message from '../data/message.json';
+import MessageData from '../data/message.json';
 import React,{useState} from 'react';
 import './talking.css'; 
 import goghImage from '../images/gogh.png';
@@ -12,14 +12,15 @@ import Input from'./Input'
 import { useParams } from 'react-router-dom';
 
 function VanGoghPage() {
-    var { answer } = useParams();
-    const [message, setMessage] = useState('');
-    answer = Number(answer);
-    var goghmessage = message.message_unknown;
-    if(answer === 1) {
-        goghmessage = message.message_known;
-    } else if(answer === 2) {
-        goghmessage = message.message_wellknown;
+    const { author_answer, museum_answer } = useParams();
+    const [message, setMessage] = useState(MessageData.message_unknown);
+      // 파라미터 값을 사용하는 로직
+    console.log('VanGoghPage :author_answer:', author_answer);
+    console.log('museum_answer:', museum_answer);
+    if(author_answer === 1) {
+        setMessage(MessageData.message_known);
+    } else if(author_answer === 2) {
+        setMessage(MessageData.message_wellknown);
     }
     return (
         <div className="container">
@@ -36,7 +37,7 @@ function VanGoghPage() {
                 </div>
                 <div className="description">
                     <p>
-                        {goghmessage}
+                        {message}
                     </p>
                     <div className="message-bar">
                         <BackButton />
@@ -45,7 +46,7 @@ function VanGoghPage() {
                             onChange={(e) => setMessage(e.target.value)} 
                             placeholder="메시지"
                         />
-                        <SendButton />
+                        <SendButton author_answer={author_answer}  museum_answer={museum_answer}/>
                         <NextButton nextPath="/starry"/>
                     </div>
                 </div>
