@@ -1,11 +1,8 @@
 .burger-button {
-  font-size: 35px;
+  font-size: 3vh;
   cursor: pointer;
   background-color: transparent;
   border: none;
-  position: absolute;
-  top: 5%;         
-  right: 5%;        
   transition: transform 0.5s ease; /* 회전 애니메이션을 부드럽게 */
 }
 
