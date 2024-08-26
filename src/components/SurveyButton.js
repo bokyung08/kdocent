@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 const IsClickedContext = createContext(false);
 
-const VerticalButtonGroup = styled.div`
+const VerticalSurveyButton = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -25,50 +25,51 @@ const CustomButton = styled(Button)`
   margin-bottom: 40px;
   z-index: 1;
 `;
-
-const ButtonGroup = ({ onButtonClick , bpag }) => {
+const SurveyButton = (props) => {
     const navigate = useNavigate();
-    const [buttons, setButtons] = useState([
+    const [author_answer, setAuthorAnswer] = useState(0);
+    const [museum_answer, setMuseumAnswer] = useState(0);
+    // author_answer { "0" : "잘 모른다", "1" : "어느 정도 안다", "2" : "아주 잘 안다" }
+    // museum_answer { "0" : "주 1회 이상", "1" : "월 1회 정도", "2", "거의 가지 않음" }
+
+    const [surveyData, setsurveyData] = useState([
         { text: message.survey_unknown, isClicked: false, newMessage: '주 1회 이상' },
         { text: message.survey_known, isClicked: false, newMessage: '월 1회 정도' },
         { text: message.survey_wellknown, isClicked: false, newMessage: '거의 가지 않음' },
       ]);
       
     const [isClicked, setIsClicked] = useState(false);
-    const [clickedButtons, setClickedButtons] = useState([]);
+    const [clickedsurveyData, setClickedsurveyData] = useState([]);
     
-    const handleClick = (button) => {
-     var answer = 0;
-      if (clickedButtons.length < 1) {
+    const handleClick = (surveyObject) => {
+      if (clickedsurveyData.length < 1) {
         setIsClicked(true);
-        setClickedButtons([...clickedButtons, button.text]);
+        setClickedsurveyData([...clickedsurveyData, surveyObject.text]);
+        if(surveyObject.text === '어느 정도 안다')
+          setAuthorAnswer(1);
+        else if (surveyObject.text === '아주 잘 안다')
+          setAuthorAnswer(2);
       } else {
-        setClickedButtons(clickedButtons);
-        console.log(clickedButtons.length);
-        console.log(button.text);
-        console.log(button);
-        if(button.text === '어느 정도 안다')
-          answer = 1;
-        else if (button.text === '아주 잘 안다')
-          answer = 2;
-        navigate(`/gogh/${encodeURIComponent(answer)}`);
+        setMuseumAnswer(surveyObject.newMessage === '월 1회 정도' ? 1 : 2);
+        navigate(`/gogh/author_answer=${author_answer}/museum_answer=${museum_answer}`);
+        
       }};
       return (
             <IsClickedContext.Provider value={{ isClicked, handleClick }}>
-                <VerticalButtonGroup>
-                    {buttons.map((button, index) => (
+                <VerticalSurveyButton>
+                    {surveyData.map((surveyObject, index) => (
                       
                     <CustomButton key={index} variant="dark" onClick={() => {
-                            handleClick(button);
-                            bpag();
+                            handleClick(surveyObject);
+                            props.setMessage();
                         }}
                     >
-                        {isClicked ? button.newMessage : button.text}
+                        {isClicked ? surveyObject.newMessage : surveyObject.text}
                     </CustomButton>
                     ))}
-                </VerticalButtonGroup>
+                </VerticalSurveyButton>
         </IsClickedContext.Provider>
       );
     }
 
-export default ButtonGroup;
+export default SurveyButton;
