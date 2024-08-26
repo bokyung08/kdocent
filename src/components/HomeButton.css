@@ -6,6 +6,7 @@
     font-size: 3.5vh;
     color: #000;
     z-index: 1000;
+    border:none;
 }
 
 .home-button:hover {
