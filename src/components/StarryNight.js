@@ -34,13 +34,15 @@ function StarryNight() {
                         className="vangogh-image" 
                         src={goghImage}
                         alt="반 고흐"
+                        style={{paddingTop:'80px'}}
                     />
                 </div>
                 <div className="description">
-                    <p>
-                        {goghmessage}
-                    </p>
-                    <div className="message-bar">
+                    <p style={{width: '90vw', height:'20vh' ,overflowY:'scroll', margin: '0'}}>
+                            {goghmessage}
+                        </p>
+                </div>
+                <div className="message-bar">
                         <BackButton beforePath="/gogh"/>
                         <input 
                             className="message-input" 
@@ -48,10 +50,8 @@ function StarryNight() {
                             placeholder="메시지" 
                         />
                         <SendButton />
-                        {console.log("ㅁㄴㅇㄴㅁㅇㅁㅇ"+answer)}
                         <NextButton nextPath={`/sunflower/${answer}`} />
                     </div>
-                </div>
             </div>
         </div>
     );

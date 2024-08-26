@@ -36,13 +36,15 @@ function SunflowerPage() {
                         className="sunflower" 
                         src={goghImage}
                         alt="반 고흐의 해바라기"
+                        style={{paddingTop:'80px'}}
                     />
                 </div>
                 <div className="description">
-                    <p>
+                    <p style={{width: '90vw', height:'20vh' ,overflowY:'scroll', margin: '0'}}>
                         {goghmessage}
                     </p>
-                    <div className="message-bar">
+                </div>
+                <div className="message-bar">
                         <BackButton beforePath="/starry" />
                         <input 
                             className="message-input" 
@@ -52,7 +54,6 @@ function SunflowerPage() {
                         <SendButton />
                         <NextButton nextPath={`/self/${answer}`}/>
                     </div>
-                </div>
             </div>
         </div>
     );

@@ -23,15 +23,17 @@ function LoginPage() {
                 </div>
                 <div className={styles.imageContainer}>
                     <img className={styles.monaLisaLogin} src={monaLisaImage} alt="Mona Lisa" />
-                    <div className={styles.buttonContainer}>
-                        <button className={styles.guestButton} onClick={handleGuestLogin}>
-                            <img className={styles.guestIcon} src={GuestImage} alt="guest" />
-                            <span>게스트로 로그인</span>
-                        </button>
-                        <button className={styles.guestButton} onClick={handleLogin}>
-                            <img className={styles.guestIcon} src={GuestImage} alt="guest" />
-                            <span>회원 로그인</span>
-                        </button>
+                    <div className={styles.animatedelement}>
+                        <div className={styles.buttonContainer}>
+                            <button className={styles.guestButton} onClick={handleGuestLogin}>
+                                <img className={styles.guestIcon} src={GuestImage} alt="guest" />
+                                <span>게스트로 로그인</span>
+                            </button>
+                            <button className={styles.guestButton} onClick={handleLogin}>
+                                <img className={styles.guestIcon} src={GuestImage} alt="guest" />
+                                <span>회원 로그인</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

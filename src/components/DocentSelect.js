@@ -56,10 +56,12 @@ const DocentSelect = () => {
                   <h1>PEŘCENT</h1>
                   <h6>도슨트를 선택하세요</h6>
                 </div>
-                <div className={styles.imageContainer}>
-                  <div className={styles.gogh} onClick={docentSelectHandle}/> 
-                  <div className={styles.andy} onClick={docentSelectHandle}/> 
-                  <div className={styles.pikaso} onClick={docentSelectHandle}/>
+                <div className={styles.slideinleft}>
+                  <div className={styles.imageContainer}>
+                    <div className={styles.gogh} onClick={docentSelectHandle}/> 
+                    <div className={styles.andy} onClick={docentSelectHandle}/> 
+                    <div className={styles.pikaso} onClick={docentSelectHandle}/>
+                  </div>
                 </div>
             </div>)}
             {

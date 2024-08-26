@@ -44,8 +44,8 @@
     width: 100%;
     height: 65%;
     display: block;
-    top:35%;
-    opacity: 0.4;
+    top: 50%;
+    animation: myMonarisa 2s ease-in-out forwards;
 
 }
 .monaLisa {
@@ -59,8 +59,6 @@
     display: block;
     position:absolute;
     top:35%;
-    opacity: 1;
-
 }
 
 .buttonContainer {
@@ -69,8 +67,8 @@
     justify-content: center;
     flex-direction: column;
     gap: 10px;
-    position:absolute;
-    top:75%;    
+    position: absolute;
+    top: 40vh;
  
 }
 
@@ -120,3 +118,29 @@
 .imageContainer{
     width: 100%;
 }
+  
+@keyframes myAnimation {
+    from {
+      transform: translateY(0px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(-100px);
+      opacity: 1;
+    }
+  }
+  
+  .animatedelement {
+    animation: myAnimation 2s ease-in-out forwards;
+  }
+
+  @keyframes myMonarisa {
+    from {
+        opacity: 0;
+        transform: translateY(0px);
+    }
+    to {
+        opacity: 0.4;
+        transform: translateY(-100px);
+    }
+  }
