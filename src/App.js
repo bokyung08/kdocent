@@ -11,6 +11,9 @@ import DocentSelect from './components/DocentSelect';
 import SurveyPage from './components/SurveyPage';
 import ChatBotPage from './components/chatApp';
 import LoginPopup from './components/LoginPopup';
+import SignUpPage from './components/SignUp';
+import SignPage from './components/SignPage';
+import LastPage from './components/LastPage';
 function App() {
   return (
     <Router>
@@ -26,6 +29,10 @@ function App() {
         <Route path="/self2" element={<Self2 />} />
         <Route path="/assign" element={<LoginPopup />} />
         <Route path="/chatbot" element={<ChatBotPage />} />
+        <Route path="/sign" element={<SignPage />} />
+        <Route path="/sign" element={<SignUpPage />} />
+        <Route path="/sign" element={<LastPage />} />
+        
       </Routes>
     </Router>      
   );

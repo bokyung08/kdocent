@@ -9,7 +9,7 @@ function PercentPage() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigate('/select'); // '/nextPage' 경로로 이동합니다. 원하는 경로로 변경하세요.
+      navigate('/login'); // '/nextPage' 경로로 이동합니다. 원하는 경로로 변경하세요.
     }, 2000); // 2000ms = 2초
 
     return () => clearTimeout(timer); // 컴포넌트가 언마운트될 때 타이머를 정리합니다.

@@ -8,13 +8,14 @@ import { useNavigate } from 'react-router-dom';
 
 function LoginPage() {
     const navigate = useNavigate();
+    const handleStar=()=>{
+        navigate('')
+    }
 
-    const handleGuestLogin = () => {
-        navigate('/select'); // '/chatbot' 경로로 이동
+    const handleSignup = () => {
+        navigate('/SignPage'); // '/chatbot' 경로로 이동
     };
-    const handleLogin = () => {
-        navigate('/assign'); // '/chatbot' 경로로 이동
-    };
+
     return (
         <div className={styles.container}>
             <div className={styles.content}>
@@ -24,14 +25,13 @@ function LoginPage() {
                 <div className={styles.imageContainer}>
                     <img className={styles.monaLisaLogin} src={monaLisaImage} alt="Mona Lisa" />
                     <div className={styles.buttonContainer}>
-                        <button className={styles.guestButton} onClick={handleGuestLogin}>
+                        <button className={styles.guestButton} onClick={handleSignup}>
                             <img className={styles.guestIcon} src={GuestImage} alt="guest" />
-                            <span>게스트로 로그인</span>
+                            <span>게스트 회원가입</span>
                         </button>
-                        <button className={styles.guestButton} onClick={handleLogin}>
-                            <img className={styles.guestIcon} src={GuestImage} alt="guest" />
-                            <span>회원 로그인</span>
-                        </button>
+                        <a href="https://forms.gle/NaTiTkafoVe8UsUSA" className={styles.guestButton}>
+                        <span>만족도 조사</span>
+                        </a>
                     </div>
                 </div>
             </div>

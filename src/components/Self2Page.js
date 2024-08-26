@@ -34,7 +34,7 @@ function Self2Page() {
                             placeholder="메시지"
                         />
                         <SendButton />
-                        <NextButton nextPath="/login"/>
+                        <NextButton nextPath="/sign"/>
                     </div>
                 </div>
             </div>

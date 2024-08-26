@@ -4,9 +4,9 @@
     cursor: pointer;
     padding: 10px;
     margin: 0;
-    position: fixed;
-    top: 4.7%;
-    left: 5%;
+    position: absolute;
+    top: 4%;         
+    left: 5%;  
     font-size: 45px;
     color: #000;
     z-index: 1000;

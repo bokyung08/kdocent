@@ -2,21 +2,21 @@ import React, { useState } from 'react';
 import styles from './LoginPage.module.css';
 import { useNavigate } from 'react-router-dom';
 
-function Login() {
+function SignUp() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
-    const handleLogin = (e) => {
+    const handleSign = (e) => {
         e.preventDefault();
-        navigate('/survey/:alt');
+        navigate('/last');
     };
 
     return (
         <div className={styles.container}>
             <div className={styles.content}>
-                <h1>로그인</h1>
-                <form onSubmit={handleLogin} className={styles.loginForm}>
+                <h1>회원가입</h1>
+                <form onSubmit={handleSign} className={styles.loginForm}>
                     <div className={styles.formGroup}>
                         <label htmlFor="username">ID</label>
                         <input
@@ -27,6 +27,7 @@ function Login() {
                             required
                         />
                     </div>
+                    
                     <div className={styles.formGroup}>
                         <label htmlFor="password">password</label>
                         <input
@@ -37,11 +38,11 @@ function Login() {
                             required
                         />
                     </div>
-                    <button type="submit" className={styles.loginButton}>로그인</button>
+                    <button type="submit" className={styles.loginButton}>회원가입</button>
                 </form>
             </div>
         </div>
     );
 }
 
-export default Login;
+export default SignUp;
