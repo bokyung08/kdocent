@@ -24,8 +24,8 @@ function App() {
         <Route path="/sunflower" element={<SunFlower />} />
         <Route path="/self" element={<Self />} />
         <Route path="/self2" element={<Self2 />} />
-        <Route path="/chatbot" element={<ChatBotPage />} />
         <Route path="/assign" element={<LoginPopup />} />
+        <Route path="/chatbot" element={<ChatBotPage />} />
       </Routes>
     </Router>      
   );

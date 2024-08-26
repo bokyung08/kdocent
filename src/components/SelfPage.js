@@ -33,7 +33,6 @@ function SelfPage() {
                             value={message}
                             onChange={(e) => setMessage(e.target.value)} 
                             placeholder="메시지"
-                        />aceholder="메시지" 
                         />
                         <SendButton />
                         <NextButton nextPath="/self2"/>

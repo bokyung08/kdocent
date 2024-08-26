@@ -1,30 +1,55 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import styles from './ChatBotPage.module.css';
 
 function ChatApp() {
     const location = useLocation(); 
+    const navigate = useNavigate(); // useNavigate 훅을 사용
     const [messages, setMessages] = useState([]);
-    const [input, setInput] = useState(location.state?.initialMessage || ''); 
+    const [input, setInput] = useState(''); 
     const [selectedModel, setSelectedModel] = useState(location.state?.selectedModel || 'picasso');
     const [loading, setLoading] = useState(false);
-    const [isChatOpen, setIsChatOpen] = useState(true); // State to control chatbot visibility
     const endOfMessagesRef = useRef(null);
-    const containerRef = useRef(null); // Ref for chatbot container
+
+    const artistNames = {
+        pikaso: "Pablo Picasso",
+        andy: "Andy Warhol",
+        gogh: "Vincent van Gogh"
+    };
+
+    const artistName = artistNames[selectedModel] || 'Art';
 
     useEffect(() => {
         if (location.state?.initialMessage) {
-            sendMessage(); 
+            setInput(location.state.initialMessage);
+            sendMessage(location.state.initialMessage);
         }
     }, [location.state?.initialMessage]);
 
-    const sendMessage = async () => {
-        const messageToSend = input.trim();
+    useEffect(() => {
+        switch (selectedModel) {
+            case 'pikaso': 
+                document.body.style.backgroundImage = "url('../images/sunflowerbackground.png')";
+                break;
+            case 'andy': 
+                document.body.style.backgroundImage = "url('../images/selfbackground.png')";
+                break;
+            case 'gogh': 
+                document.body.style.backgroundImage = "url('../images/theStarryNight.jpg')";
+                break;
+            default:
+                document.body.style.backgroundImage = 'none';
+                break;
+        }
+    }, [selectedModel]);
+
+    const sendMessage = async (messageToSend = input.trim()) => {
         if (messageToSend === '') return;
+
+        setInput(''); 
 
         const newMessage = { sender: 'user', text: messageToSend };
         setMessages((prevMessages) => [...prevMessages, newMessage]);
-        setInput('');
         setLoading(true);
 
         try {
@@ -63,87 +88,44 @@ function ChatApp() {
         endOfMessagesRef.current?.scrollIntoView({ behavior: 'smooth' });
     }, [messages]);
 
-    useEffect(() => {
-        switch (selectedModel) {
-            case 'picasso':
-                document.body.style.backgroundImage = "url('../images/sunflowerbackground.png')";
-                break;
-            case 'warhol':
-                document.body.style.backgroundImage = "url('../images/selfbackground.png')";
-                break;
-            case 'gogh':
-                document.body.style.backgroundImage = "url('../images/theStarryNight.jpg')";
-                break;
-            default:
-                document.body.style.backgroundImage = 'none';
-                break;
-        }
-    }, [selectedModel]);
-
-    const handleClickOutside = (e) => {
-        if (containerRef.current && !containerRef.current.contains(e.target)) {
-            setIsChatOpen(false); // Close the chatbot if clicked outside
-        }
+    // 뒤로 가기 버튼 클릭 핸들러
+    const handleGoBack = () => {
+        navigate(-1); // 이전 페이지로 이동
     };
 
-    useEffect(() => {
-        document.addEventListener('mousedown', handleClickOutside);
-
-        return () => {
-            document.removeEventListener('mousedown', handleClickOutside);
-        };
-    }, []);
-
-    if (!isChatOpen) {
-        return null; // Don't render anything if the chatbot is closed
-    }
-
     return (
-        <div className={styles.overlay}> {/* Overlay */}
-            <div className={styles.container} ref={containerRef}>
-                <div className={styles.content}>
-                    <div className={styles.middletitle}>Chat with Art</div>
-                    <div style={{ marginBottom: '10px' }}>
-                        <label>
-                            Select Model:
-                            <select
-                                value={selectedModel}
-                                onChange={(e) => setSelectedModel(e.target.value)}
-                                style={{ marginLeft: '10px', padding: '5px' }}
-                            >
-                                <option value="picasso">Picasso</option>
-                                <option value="warhol">Warhol</option>
-                                <option value="gogh">Gogh</option>
-                            </select>
-                        </label>
-                    </div>
-                    <div style={{ border: '1px solid #ccc', padding: '10px', height: '400px', overflowY: 'scroll' }}>
-                        {messages.map((message, index) => (
-                            <div
-                                key={index}
-                                style={{
-                                    textAlign: message.sender === 'user' ? 'right' : 'left',
-                                    margin: '10px 0',
-                                }}
-                            >
-                                <strong>{message.sender === 'user' ? 'You: ' : 'Bot: '}</strong>
-                                {message.text}
-                            </div>
-                        ))}
-                        <div ref={endOfMessagesRef}></div>
-                    </div>
-                    <div className={styles['message-bar']}>
-                        <input
-                            type="text"
-                            value={input} 
-                            onChange={(e) => setInput(e.target.value)} 
-                            onKeyDown={handleKeyPress}
-                            className={styles['message-input']}
-                        />
-                        <button onClick={sendMessage} className={styles.button}>
-                            Send
-                        </button>
-                    </div>
+        <div className={styles.container}>
+            <div className={styles.content}>
+                <button onClick={handleGoBack} className={styles.backButton}>
+                    &larr; Back
+                </button>
+                <div className={styles.middletitle}>Chat with {artistName}</div>
+                <div style={{ border: '1px solid #ccc', padding: '10px', height: '400px', overflowY: 'scroll' }}>
+                    {messages.map((message, index) => (
+                        <div
+                            key={index}
+                            style={{
+                                textAlign: message.sender === 'user' ? 'right' : 'left',
+                                margin: '10px 0',
+                            }}
+                        >
+                            <strong>{message.sender === 'user' ? 'You: ' : 'Bot: '}</strong>
+                            {message.text}
+                        </div>
+                    ))}
+                    <div ref={endOfMessagesRef}></div>
+                </div>
+                <div className={styles['message-bar']}>
+                    <input
+                        type="text"
+                        value={input} 
+                        onChange={(e) => setInput(e.target.value)} 
+                        onKeyDown={handleKeyPress}
+                        className={styles['message-input']}
+                    />
+                    <button onClick={() => sendMessage()} className={styles.button}>
+                        Send
+                    </button>
                 </div>
             </div>
         </div>
