@@ -13,7 +13,7 @@ const SurveyPage = () => {
     if(alt === 'andy') {
         author = '앤디 워홀';
         particle = '을';
-    } else if (alt === 'goch') {
+    } else if (alt === 'gogh') {
         author = '빈센트 반 고흐'
         particle = '를';
     } else if (alt === 'pikaso') {
