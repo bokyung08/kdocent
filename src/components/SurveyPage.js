@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import styles from './SurveyPage.module.css';
 import 'animate.css'
-import ButtonGroup from './ButtonGroup';
+import SurveyButton from './SurveyButton';
 
 const SurveyPage = () => {
     const [message, setMessage] = useState("");
@@ -24,7 +24,8 @@ const SurveyPage = () => {
     useEffect(() => {
         setMessage(`${author} ${particle} 얼마나 아시나요?`);
     }, [author, particle]);
-    const bpageFunction = () => {
+    
+    const setIsMuseumMessage = () => {
         setMessage("전시회를 얼마나 자주 가시나요?");
     }
     return (
@@ -38,7 +39,7 @@ const SurveyPage = () => {
                     <div className={styles.text}>
                         <div className={styles.slidedown}>
                             <div className={styles.buttonContainer}>
-                                <ButtonGroup bpag={bpageFunction} />   
+                                <SurveyButton setMessage={setIsMuseumMessage} />   
                             </div>                 
                         </div>
                     </div>

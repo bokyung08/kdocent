@@ -19,7 +19,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/select" element={<DocentSelect />} />
         <Route path="/survey/:alt" element={<SurveyPage />} />
-        <Route path="/gogh/:answer" element={<VanGoghPage />} />
+        <Route path="/gogh/:answer/:snd_answer" element={<VanGoghPage />} />
         <Route path="/starry" element={<StarryNight />} />
         <Route path="/sunflower" element={<SunFlower />} />
         <Route path="/self" element={<Self />} />
