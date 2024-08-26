@@ -1,6 +1,5 @@
 import message from '../data/message.json';
-import React, {useState} from 'react';
-import { useNavigate } from 'react-router-dom'; 
+import React from 'react';
 import './talking.css'; 
 import goghImage from '../images/gogh.png';
 import homeImage from '../images/home.png';   
@@ -8,9 +7,21 @@ import BurgerButton from './BurgerButton';
 import BackButton from './BackButton';
 import SendButton from './SendButton';
 import NextButton from './NextButton';
-import Input from './Input'; // 수정된 Input 컴포넌트를 가져옴
+import { useParams } from 'react-router-dom';
+
 function StarryNight() {
-    const [message, setMessage] = useState('');
+    const { author_answer, museum_answer } = useParams();
+
+    console.log("authoranswer" + author_answer);
+    var answer = author_answer;
+    var goghmessage = message.message_unknown_star;
+    if(answer === 1) {
+        goghmessage = message.message_known_star;
+    } else if(answer === 2) {
+        goghmessage = message.message_known_star;
+    }
+
+
     return (
         <div className="starrycontainer">
             <div className="starrycontent">
@@ -25,17 +36,18 @@ function StarryNight() {
                 </div>
                 <div className="description">
                     <p>
-                        {message.message_main}
+                        {goghmessage}
                     </p>
                     <div className="message-bar">
                         <BackButton beforePath="/gogh"/>
-                        <Input 
-                            value={message}
-                            onChange={(e) => setMessage(e.target.value)} 
-                            placeholder="메시지"
+                        <input 
+                            className="message-input" 
+                            type="text" 
+                            placeholder="메시지" 
                         />
                         <SendButton />
-                        <NextButton nextPath="/sunflower" />
+                        {console.log("ㅁㄴㅇㄴㅁㅇㅁㅇ"+answer)}
+                        <NextButton nextPath={`/sunflower/${answer}`} />
                     </div>
                 </div>
             </div>

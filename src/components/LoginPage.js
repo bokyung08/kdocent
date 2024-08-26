@@ -10,7 +10,7 @@ function LoginPage() {
     const navigate = useNavigate();
 
     const handleGuestLogin = () => {
-        navigate('/assign'); // '/chatbot' 경로로 이동
+        navigate('/select'); // '/chatbot' 경로로 이동
     };
 
     return (
