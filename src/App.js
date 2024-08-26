@@ -23,10 +23,10 @@ function App() {
         <Route path="/select" element={<DocentSelect />} />
         <Route path="/survey/:alt" element={<SurveyPage />} />
         <Route path="/gogh/:author_answer/:museum_answer" element={<VanGoghPage />} />
-        <Route path="/starry" element={<StarryNight />} />
-        <Route path="/sunflower" element={<SunFlower />} />
-        <Route path="/self" element={<Self />} />
-        <Route path="/self2" element={<Self2 />} />
+        <Route path="/starry/:author_answer" element={<StarryNight />} />
+        <Route path="/sunflower/:author_answer" element={<SunFlower />} />
+        <Route path="/self/:author_answer" element={<Self />} />
+        <Route path="/self2/:author_answer" element={<Self2 />} />
         <Route path="/chatbot/:author_answer/:museum_answer" element={<ChatBotPage />} />
         <Route path="/assign" element={<LoginPopup />} />
         <Route path="/chatbot" element={<ChatBotPage />} />

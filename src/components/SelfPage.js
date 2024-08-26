@@ -1,19 +1,34 @@
 import React,{useState} from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import './talking.css';  
+import messaged from '../data/message.json';
 import self2Image from '../images/self.png';
 import homeImage from '../images/home.png';   
 import BurgerButton from './BurgerButton';
 import BackButton from './BackButton';
 import SendButton from './SendButton';
 import NextButton from './NextButton';
-import Input from './Input';
+import Input from './trash/Input';
+import HomeButton from './HomeButton';
+import { useParams } from 'react-router-dom';
 
 function SelfPage() {
+
+    const { author_answer, museum_answer } = useParams();
+
+    
+    var answer = author_answer;
+    var goghmessage = messaged.message_unknown_self;
+    if(answer === 1) {
+        goghmessage = messaged.message_known_self;
+    } else if(answer === 2) {
+        goghmessage = messaged.message_known_self;
+    }
     const [message, setMessage] = useState('');
     return (
         <div className="selfcontainer">
             <div className="selfcontent">
+            <div className='home'><HomeButton></HomeButton></div>
                 <div className='burger'><BurgerButton /></div>
                 <h1 className="middletitle">자화상</h1>
                 <div className="image-container">
@@ -25,7 +40,7 @@ function SelfPage() {
                 </div>
                 <div className="description">
                     <p>
-                        안녕하세요. 이렇게 만나게 되어 반갑습니다. 제 이야기에 관심을 가져주신 것, 정말 감사드립니다. 사실 저는 평범한 삶을 살려고 노력했지만, 항상 마음속에는 설명할 수 없는 감정과 열망이 있었습니다. 저는 캔버스와 물감을 통해 제 감정과 생각을 표현하고자 했습니다.
+                        {goghmessage}
                     </p>
                     <div className="message-bar">
                         <BackButton beforePath="/sunflower"/>
@@ -35,7 +50,7 @@ function SelfPage() {
                             placeholder="메시지"
                         />
                         <SendButton />
-                        <NextButton nextPath="/self2"/>
+                        <NextButton nextPath={`/self2/${answer}`}/>
                     </div>
                 </div>
             </div>
