@@ -30,9 +30,11 @@
 }
 
 .popup-overlay.open {
-  height: 100%;
+  height: 75vh;
   opacity: 1;
   pointer-events: auto;
+  z-index: 10000;
+  top: 10%;
 }
 
 .popup-content {

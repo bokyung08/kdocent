@@ -57,8 +57,7 @@
 }
 
 .imageContainer{
-  margin-top: 15vh;
-  margin-left: 5vh;
+  margin-top: 25vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -184,4 +183,21 @@
   z-index: 1000;
   flex-direction: row;
   justify-content: space-evenly;
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slideinleft {
+  animation: slideInLeft 1s ease-in-out forwards;
+  width: 90%;
+
 }

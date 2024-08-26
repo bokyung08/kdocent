@@ -37,10 +37,12 @@ function Self2Page() {
                     />
                 </div>
                 <div className="description">
-                    <p>
-                        {goghmessage}
-                    </p>
-                    <div className="message-bar">
+                <p style={{width: '90vw', height:'20vh' ,overflowY:'scroll', margin: '0'}}>
+                            {goghmessage}
+                        </p>
+                    
+                </div>
+                <div className="message-bar">
                         <BackButton beforePath="/self" />
                         <Input 
                             value={message}
@@ -50,7 +52,6 @@ function Self2Page() {
                         <SendButton />
                         <NextButton nextPath="/signup"/>
                     </div>
-                </div>
             </div>
         </div>
     );

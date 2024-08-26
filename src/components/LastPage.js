@@ -16,10 +16,12 @@ function LastPage() {
                 </div>
                 <div className={styles.imageContainer}>
                     <div className={styles.buttonContainer}>
-                        <a href="https://forms.gle/NaTiTkafoVe8UsUSA" className={styles.guestButton}onClick={handleHome} target="_blank" rel="noopener noreferrer">
+                        <a href="https://forms.gle/NaTiTkafoVe8UsUSA" className={styles.guestButton}onClick={handleHome} target="_blank" rel="noopener noreferrer"
+                        style={{width:'49vw'}}>
                             <span>만족도 조사</span>
                         </a>
-                        <button className={styles.guestButton} onClick={handleHome}> 
+                        <button className={styles.guestButton} onClick={handleHome}
+                        style={{width:'57vw'}}> 
                             <span>돌아가기</span>
                         </button>
                     </div>

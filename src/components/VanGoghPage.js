@@ -32,13 +32,15 @@ function VanGoghPage() {
                         className="vangogh-image" 
                         src={goghImage}
                         alt="반 고흐"
+                        style={{paddingTop:'80px'}}
                     />
                 </div>
                 <div className="description">
-                    <p>
+                    <p style={{width: '90vw', height:'20vh' ,overflowY:'scroll', margin: '0'}}>
                         {goghmessage}
                     </p>
-                    <div className="message-bar">
+                </div>
+                <div className="message-bar">
                         <BackButton />
                         <input 
                             className="message-input" 
@@ -48,7 +50,6 @@ function VanGoghPage() {
                         <SendButton />
                         <NextButton nextPath={`/starry/${answer}`}/>
                     </div>
-                </div>
             </div>
         </div>
     );

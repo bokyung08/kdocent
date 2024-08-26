@@ -59,7 +59,7 @@
 
 .description {
   width: 100%;
-  height: 30%;
+  height: 5%;
   position: relative;
   background-color: #f0f0f0;
   z-index: 2;
@@ -78,7 +78,7 @@
   position: absolute;
   align-items: center;
   background-color: #f0f0f0;
-  top:93%;
+  top:-50%;
 }
 
 
