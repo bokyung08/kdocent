@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef, useParams } from 'react';
-import SendButton from './SendButton';
-import NextButton from './NextButton';
-import BackButton from './BackButton';
-import TalkLayout from './TalkLayout';
-import BurgerButton from './BurgerButton';
+import SendButton from '../SendButton';
+import NextButton from '../NextButton';
+import BackButton from '../BackButton';
+import TalkLayout from '../TalkLayout';
+import BurgerButton from '../BurgerButton';
 import styles from './ChatBotPage.module.css';
 
 function Chatbot() {
@@ -12,13 +12,12 @@ function Chatbot() {
     const [input, setInput] = useState('');
     const [loading, setLoading] = useState(false);  // 로딩 상태 추가
     const endOfMessagesRef = useRef(null);  // 자동 스크롤을 위한 ref
-
-      // 파라미터 값을 사용하는 로직
-    console.log('Chatbot author_answer:', author_answer);
-    console.log('museum_answer:', museum_answer);
-    console.log("Test");
     const sendMessage = async () => {
         if (input.trim() === '') return;
+
+    const sendMessage = async () => {
+        if (input.trim() === '') return;
+    
         const newMessage = { sender: 'user', text: input };
         setMessages((prevMessages) => [...prevMessages, newMessage]);
         setInput('');
@@ -67,7 +66,7 @@ function Chatbot() {
 
     return (
         <div className={styles.starrycontent}>
-            <BurgerButton /> 
+
             <h1 className={styles.middletitle}>반 고흐</h1>
             <div style={{ maxWidth: '600px', margin: '0 auto' }}>
                 <div style={{ border: '1px solid #ccc', padding: '10px', height: '400px', overflowY: 'scroll' }}>
@@ -86,9 +85,7 @@ function Chatbot() {
                     <div ref={endOfMessagesRef} />  {/* 자동 스크롤을 위한 ref */}
                 </div>
                 <div style={styles.messagebar}>
-                    {console.log('Chatbot author_answer:', author_answer)}
-                    { console.log('museum_answer:', museum_answer)}
-                    {console.log("Test")}
+
                     <BackButton />
                     <input
                         className={styles.messageinput} 

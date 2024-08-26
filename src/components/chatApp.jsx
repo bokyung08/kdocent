@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
-import styles from './ChatBotPage.css';
+import { useLocation, useParams, useNavigate} from 'react-router-dom';
+import styles from './ChatBotPage.module.css';
 
 function ChatApp() {
     const location = useLocation(); 
+    const navigate = useNavigate(); // useNavigate 훅을 사용
     const [messages, setMessages] = useState([]);
-    const [input, setInput] = useState(location.state?.initialMessage || ''); 
+    const [input, setInput] = useState(''); 
     const [selectedModel, setSelectedModel] = useState(location.state?.selectedModel || 'picasso');
     const [loading, setLoading] = useState(false);
     const endOfMessagesRef = useRef(null);
@@ -14,19 +15,46 @@ function ChatApp() {
     const museum_answer = parseInt(pathname.substring(pathname.indexOf("museum_answer=")+14, pathname.indexOf("museum_answer=")+15));
     // author_answer { "0" : "잘 모른다", "1" : "어느 정도 안다", "2" : "아주 잘 안다" }
     // museum_answer { "0" : "주 1회 이상", "1" : "월 1회 정도", "2", "거의 가지 않음" }
+
+    const artistNames = {
+        pikaso: "Pablo Picasso",
+        andy: "Andy Warhol",
+        gogh: "Vincent van Gogh"
+    };
+
+    const artistName = artistNames[selectedModel] || 'Art';
+  
     useEffect(() => {
         if (location.state?.initialMessage) {
-            sendMessage(); 
+            setInput(location.state.initialMessage);
+            sendMessage(location.state.initialMessage);
         }
     }, [location.state?.initialMessage]);
 
-    const sendMessage = async () => {
-        const messageToSend = input.trim();
+    useEffect(() => {
+        switch (selectedModel) {
+            case 'pikaso': 
+                document.body.style.backgroundImage = "url('../images/sunflowerbackground.png')";
+                break;
+            case 'andy': 
+                document.body.style.backgroundImage = "url('../images/selfbackground.png')";
+                break;
+            case 'gogh': 
+                document.body.style.backgroundImage = "url('../images/theStarryNight.jpg')";
+                break;
+            default:
+                document.body.style.backgroundImage = 'none';
+                break;
+        }
+    }, [selectedModel]);
+
+    const sendMessage = async (messageToSend = input.trim()) => {
         if (messageToSend === '') return;
+
+        setInput(''); 
 
         const newMessage = { sender: 'user', text: messageToSend };
         setMessages((prevMessages) => [...prevMessages, newMessage]);
-        setInput('');
         setLoading(true);
 
         try {
@@ -65,41 +93,18 @@ function ChatApp() {
         endOfMessagesRef.current?.scrollIntoView({ behavior: 'smooth' });
     }, [messages]);
 
-    useEffect(() => {
-        switch (selectedModel) {
-            case 'picasso':
-                document.body.style.backgroundImage = "url('../images/sunflowerbackground.png')";
-                break;
-            case 'warhol':
-                document.body.style.backgroundImage = "url('../images/selfbackground.png')";
-                break;
-            case 'gogh':
-                document.body.style.backgroundImage = "url('../images/theStarryNight.jpg')";
-                break;
-            default:
-                document.body.style.backgroundImage = 'none';
-                break;
-        }
-    }, [selectedModel]);
+    // 뒤로 가기 버튼 클릭 핸들러
+    const handleGoBack = () => {
+        navigate(-1); // 이전 페이지로 이동
+    };
 
     return (
         <div className={styles.container}>
             <div className={styles.content}>
-                <div className={styles.middletitle}>Chat with Art</div>
-                <div style={{ marginBottom: '10px' }}>
-                    <label>
-                        Select Model:
-                        <select
-                            value={selectedModel}
-                            onChange={(e) => setSelectedModel(e.target.value)}
-                            style={{ marginLeft: '10px', padding: '5px' }}
-                        >
-                            <option value="picasso">Picasso</option>
-                            <option value="warhol">Warhol</option>
-                            <option value="gogh">Gogh</option>
-                        </select>
-                    </label>
-                </div>
+                <button onClick={handleGoBack} className={styles.backButton}>
+                    &larr; Back
+                </button>
+                <div className={styles.middletitle}>Chat with {artistName}</div>
                 <div style={{ border: '1px solid #ccc', padding: '10px', height: '400px', overflowY: 'scroll' }}>
                     {messages.map((message, index) => (
                         <div
@@ -123,7 +128,7 @@ function ChatApp() {
                         onKeyDown={handleKeyPress}
                         className={styles['message-input']}
                     />
-                    <button onClick={sendMessage} className={styles.button}>
+                    <button onClick={() => sendMessage()} className={styles.button}>
                         Send
                     </button>
                 </div>

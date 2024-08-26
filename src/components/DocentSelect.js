@@ -30,10 +30,10 @@ const DocentSelect = () => {
           setaltText("gogh");
           setPopup(<div className={styles.gogh} />);
           
-        } else if(targetDocent.search("pikaso") !== -1) { // 3
+        } else if(targetDocent.search("picasso") !== -1) { // 3
           setisPopup(!isPopup);
           setisDocentsID(2);
-          setaltText("pikaso");
+          setaltText("picasso");
           setPopup(<div className={styles.pikaso}/>);
         }
       }
