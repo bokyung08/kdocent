@@ -7,6 +7,7 @@ import BurgerButton from './BurgerButton';
 import BackButton from './BackButton';
 import SendButton from './SendButton';
 import NextButton from './NextButton';
+import HomeButton from './HomeButton';
 import { useParams } from 'react-router-dom';
 
 function StarryNight() {
@@ -25,6 +26,7 @@ function StarryNight() {
     return (
         <div className="starrycontainer">
             <div className="starrycontent">
+            <div className='home'><HomeButton></HomeButton></div>
                 <div className='burger'><BurgerButton /></div>
                 <h1 className="middletitle">반 고흐</h1>
                 <div className="image-container">

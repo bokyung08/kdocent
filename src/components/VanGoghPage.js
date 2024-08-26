@@ -7,6 +7,7 @@ import BurgerButton from './BurgerButton';
 import BackButton from './BackButton';
 import SendButton from './SendButton';
 import NextButton from './NextButton';
+import HomeButton from './HomeButton';
 import { useParams } from 'react-router-dom';
 function VanGoghPage() {
     const { author_answer, museum_answer } = useParams();
@@ -23,6 +24,7 @@ function VanGoghPage() {
     return (
         <div className="container">
             <div className="content">
+            <div className='home'><HomeButton></HomeButton></div>
                 <div className='burger'><BurgerButton /></div>
                 <h1 className="middletitle">반 고흐</h1>
                 <div className="image-container">

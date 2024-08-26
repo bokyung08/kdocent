@@ -8,6 +8,7 @@ import BurgerButton from './BurgerButton';
 import BackButton from './BackButton';
 import SendButton from './SendButton';
 import NextButton from './NextButton';
+import HomeButton from './HomeButton';
 import { useParams, useLocation } from 'react-router-dom';
 
 function SunflowerPage() {
@@ -27,6 +28,7 @@ function SunflowerPage() {
     return (
         <div className="sunflowercontainer">
             <div className="sunflowercontent">
+            <div className='home'><HomeButton></HomeButton></div>
                 <div className='burger'><BurgerButton /></div>
                 <h1 className="middletitle">해바라기</h1>
                 <div className="image-container">

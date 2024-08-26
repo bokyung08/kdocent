@@ -9,6 +9,7 @@ import BackButton from './BackButton';
 import SendButton from './SendButton';
 import NextButton from './NextButton';
 import Input from './trash/Input';
+import HomeButton from './HomeButton';
 import { useParams } from 'react-router-dom';
 
 function SelfPage() {
@@ -27,6 +28,7 @@ function SelfPage() {
     return (
         <div className="selfcontainer">
             <div className="selfcontent">
+            <div className='home'><HomeButton></HomeButton></div>
                 <div className='burger'><BurgerButton /></div>
                 <h1 className="middletitle">자화상</h1>
                 <div className="image-container">
