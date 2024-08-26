@@ -10,10 +10,10 @@ function LoginPage() {
     const navigate = useNavigate();
 
     const handleGuestLogin = () => {
-        navigate('/select'); // '/chatbot' 경로로 이동
+        navigate('/select');
     };
     const handleLogin = () => {
-        navigate('/assign'); // '/chatbot' 경로로 이동
+        navigate('/assign'); 
     };
     return (
         <div className={styles.container}>

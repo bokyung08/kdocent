@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import monaLisaImage from '../images/monarisa.png';
 import GuestImage from '../images/Guest.png';
-import naverImage from '../images/naver.png';
-import kakaoImage from '../images/kakao.png';
 import styles from './LoginPage.module.css'; 
 import { useNavigate } from 'react-router-dom';
 
