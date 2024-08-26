@@ -1,11 +1,7 @@
-<<<<<<< HEAD
+
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './PercentPage.module.css';
-=======
-import React from 'react';
-import styles from './LoginPage.module.css';
->>>>>>> 5d25f0a79d8d877c0e331470ec8224dc42b2b89b
 import monaLisaImage from '../images/monarisa.png'; // 이미지 경로와 확장자 확인
 
 function PercentPage() {

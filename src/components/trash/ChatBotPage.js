@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
-import SendButton from './SendButton';
-import NextButton from './NextButton';
-import BackButton from './BackButton';
-import TalkLayout from './TalkLayout';
-import BurgerButton from './BurgerButton';
+import SendButton from '../SendButton';
+import NextButton from '../NextButton';
+import BackButton from '../BackButton';
+import TalkLayout from '../TalkLayout';
+import BurgerButton from '../BurgerButton';
 import styles from './ChatBotPage.module.css';
 
 function Chatbot() {
